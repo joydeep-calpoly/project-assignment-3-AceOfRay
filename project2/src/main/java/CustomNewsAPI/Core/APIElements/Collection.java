@@ -1,7 +1,6 @@
 package CustomNewsAPI.Core.APIElements;
 
 import java.util.List;
-import com.fasterxml.jackson.annotation.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
@@ -29,11 +28,10 @@ public class Collection {
      * @param totalResults
      * @param articles
      */
-    @JsonCreator
     public Collection(
-            @JsonProperty("status") String status,
-            @JsonProperty("totalResults") Integer totalResults,
-            @JsonProperty("articles") List<Article> articles) {
+            String status,
+            Integer totalResults,
+            List<Article> articles) {
         this.status = status;
         this.totalResults = totalResults;
         this.articles = new ArrayList<>(articles);
@@ -45,8 +43,7 @@ public class Collection {
      * Standard Printing Method printing any list of Articles
      */
 
-     @JsonIgnore
-     public void printArticles(List<Article> articles) {
+    public void printArticles(List<Article> articles) {
          articles.forEach(Article::print);
      }     
 
@@ -61,7 +58,6 @@ public class Collection {
      * @return
      */
 
-     @JsonIgnore
      private List<Article> populateArticles(boolean valid) {
        return this.articles.stream()
            .filter(article -> article.isValid() == valid)
@@ -74,17 +70,14 @@ public class Collection {
      * @return
      */
 
-    @JsonIgnore
     public List<Article> getValidArticles() {
         return new ArrayList<>(this.validArticles);
     }
 
-    @JsonIgnore
     public List<Article> getInvalidArticles() {
         return new ArrayList<>(this.invalidArticles);
     }
 
-    @JsonIgnore
     public List<Article> getAllArticles() {
         return new ArrayList<>(this.articles);
     }
@@ -94,7 +87,6 @@ public class Collection {
      */
 
     @Override
-    @JsonIgnore
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -118,7 +110,6 @@ public class Collection {
      * @return
      */
 
-    @JsonIgnore
     public Integer getTotalResults() {
         return totalResults;
     }
@@ -128,7 +119,6 @@ public class Collection {
      * @return
      */
 
-    @JsonIgnore
     public String getStatus() {
         return status;
     }

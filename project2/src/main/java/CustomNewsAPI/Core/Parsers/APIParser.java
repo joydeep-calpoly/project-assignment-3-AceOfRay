@@ -1,15 +1,19 @@
 package CustomNewsAPI.Core.Parsers;
 
+
 import java.util.List;
-
-import CustomNewsAPI.Core.APIElements.Collection;
-import CustomNewsAPI.Core.Providers.Provider;
-
-import java.util.logging.Logger;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.util.ArrayList;
+import java.util.logging.Logger;
+
+import org.json.JSONObject;
+import org.json.JSONException;
+
+import CustomNewsAPI.Core.Mappers.Mapper;
+import CustomNewsAPI.Core.APIElements.Collection;
+import CustomNewsAPI.Core.Mappers.APICollectionMapper;
+import CustomNewsAPI.Core.Providers.APIProviders.APIFormatProvider;
+
+
 
 /**
  * HighLevel:
@@ -26,6 +30,7 @@ import java.util.ArrayList;
 
 public class APIParser implements Parser {
     private final List<Collection> articleCollections = new ArrayList<>();
+    private final Logger logger;
 
     /**
      * This constructor parses and logs
@@ -34,17 +39,8 @@ public class APIParser implements Parser {
      * @param logger
      */
 
-    public APIParser(Provider provider, Logger logger) {
-        parse(provider.provideJsonAsStrings());
-        logInvalidArticles(logger);
-    }
-
-    /**
-     * This constructor parses without logging
-     * This is ideal for testing this class and if we don't want to log invalid articles
-     * @param provider
-     */
-    public APIParser(Provider provider) {
+    public APIParser(APIFormatProvider provider, Logger logger) {
+        this.logger = logger;
         parse(provider.provideJsonAsStrings());
     }
 
@@ -58,25 +54,6 @@ public class APIParser implements Parser {
         return new ArrayList<>(this.articleCollections);
     }
 
-    /**
-     * Implementation Details:
-     *      Walks through each article in each collection and logs the invalid ones to "logs/error.log"
-     * 
-     * Developer Thoughts:
-     *      A trade off of using jacksonbind object mapper is that I haven't found a way to immediately log an invalid
-     * article. We instead have to wait for all of them to be processed, and then go through and log each one. 
-     * I think it's not as efficient as it could be but that is the drawback of using that library
-     * @param logger
-     */
-
-    public void logInvalidArticles(Logger logger) {
-        articleCollections.forEach(collection -> {
-            collection.getInvalidArticles().forEach(article -> {
-                logger.severe("Invalid Article Detected: " + article.toString());
-            });
-        });
-        
-    }
 
     /**
      * Implementation Details:
@@ -87,12 +64,12 @@ public class APIParser implements Parser {
      */
     @Override
     public void parse(List<String> jsonStrings) {
-        ObjectMapper mapper = new ObjectMapper();
+        Mapper<Collection> mapper = new APICollectionMapper();
         jsonStrings.forEach(jsonString -> {
             try {
-                articleCollections.add(mapper.readValue(jsonString, Collection.class));
-            } catch (JsonProcessingException e) {
-                System.out.println("Caught a JsonProcessingException while parsing.\n " + e.getMessage());
+                articleCollections.add(mapper.map(new JSONObject(jsonString)));
+            } catch (JSONException e) {
+                logger.severe("Caught a JSONException while parsing.\n" + jsonString + "\n" + e.getMessage());
             }
         });
     }

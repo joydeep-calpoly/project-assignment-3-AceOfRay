@@ -1,10 +1,10 @@
 package CustomNewsAPI.Client;
 
 import CustomNewsAPI.Core.APIElements.Collection;
-import CustomNewsAPI.Core.Parsers.APIParser;
-import CustomNewsAPI.Core.Parsers.Parser;
-import CustomNewsAPI.Core.Providers.Provider;
-import CustomNewsAPI.Core.Providers.APIProviders.APIFileProvider;
+import CustomNewsAPI.Core.Parsers.*;
+//import CustomNewsAPI.Core.Providers.APIProviders.*;
+import CustomNewsAPI.Core.Providers.SimpleProviders.*;
+
 
 import java.util.logging.Logger;
 import java.util.logging.FileHandler;
@@ -20,11 +20,13 @@ public class Entry {
     public static void main(String[] args) {
 
         Logger l = getLogger();
-        String filePath = "inputs/jsonInputs/bad.json";
-        // String filePath = "jsonInputs/bad.json";
+        //String filePath = "inputs/jsonInputs/bad.json";
+        //String filePath = "inputs/jsonInputs/example.json";
+        String filePath = "inputs/base/simple.txt";
 
-        Provider provider = new APIFileProvider(filePath);
-        Parser parser = new APIParser(provider, l);
+        //APIFormatProvider provider = new APIFileProvider(filePath);
+        SimpleFormatProvider provider = new SimpleFileProvider(filePath);
+        Parser parser = new SimpleParser(provider, l);
         parser.printValidArticles();
 
     }
@@ -33,7 +35,7 @@ public class Entry {
      * This is a helper function that handles all the verbose code that is involved with creating a logger
      */
 
-    private static Logger getLogger() {
+    public static Logger getLogger() {
         try {
             FileHandler handler = new FileHandler("logs/error.log", false);
             Logger l = Logger.getLogger(Collection.class.getName());

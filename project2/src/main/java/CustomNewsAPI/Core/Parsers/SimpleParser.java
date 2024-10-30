@@ -1,37 +1,42 @@
 package CustomNewsAPI.Core.Parsers;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.logging.Logger;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.List;
 import java.util.ArrayList;
 
 import CustomNewsAPI.Core.APIElements.Article;
 import CustomNewsAPI.Core.APIElements.Collection;
-import CustomNewsAPI.Core.Providers.Provider;
+import CustomNewsAPI.Core.Mappers.SimpleArticleMapper;
 import CustomNewsAPI.Core.Providers.SimpleProviders.SimpleFormatProvider;
 
-import java.util.logging.Logger;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class SimpleParser implements Parser {
     List<Collection> articleCollections = new ArrayList<>();
+    Logger logger;
 
     /**
      * This constructor parses and logs
      * Ideal for client use
+     * 
      * @param provider
      * @param logger
      */
 
     public SimpleParser(SimpleFormatProvider provider, Logger logger) {
+        this.logger = logger;
         parse(provider.provideJsonAsStrings());
-        logInvalidArticles(logger);
     }
 
     /**
      * This constructor parses without logging
-     * This is ideal for testing this class and if we don't want to log invalid articles
+     * This is ideal for testing this class and if we don't want to log invalid
+     * articles
+     * 
      * @param provider
      */
     public SimpleParser(SimpleFormatProvider provider) {
@@ -40,19 +45,26 @@ public class SimpleParser implements Parser {
 
     @Override
     public void parse(List<String> jsonStrings) {
-        ObjectMapper mapper = new ObjectMapper();
+
+        SimpleArticleMapper mapper = new SimpleArticleMapper();
         AtomicInteger totalResults = new AtomicInteger(0);
         List<Article> incomingSimpleArticles = new ArrayList<>();
+
         jsonStrings.forEach(jsonString -> {
             try {
-                Article a = mapper.readValue(jsonString, Article.class);
-                incomingSimpleArticles.add(a);
+                incomingSimpleArticles.add(mapper.map(new JSONObject(jsonString)));
                 totalResults.getAndIncrement();
-
-            } catch (JsonProcessingException e) {
-                System.out.println("Caught a JsonProcessingException while parsing.\n " + e.getMessage());
+            } catch (JSONException e) {
+                logger.severe("Caught a JSONException while parsing.\n" + jsonString + "\n" + e.getMessage());
             }
         });
+
+        articleCollections.add(
+            new Collection(
+                "ok",
+                totalResults.get(),
+                incomingSimpleArticles)
+            );
     }
 
     @Override
@@ -60,13 +72,4 @@ public class SimpleParser implements Parser {
         return new ArrayList<>(articleCollections);
     }
 
-    @Override
-    public void logInvalidArticles(Logger logger) {
-        articleCollections.forEach(collection -> {
-            collection.getInvalidArticles().forEach(article -> {
-                logger.severe("Invalid Article Detected: " + article.toString());
-            });
-        });
-    }
-    
 }

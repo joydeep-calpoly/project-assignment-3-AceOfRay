@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SimpleFileProvider implements SimpleFormatProvider {
@@ -13,6 +14,11 @@ public class SimpleFileProvider implements SimpleFormatProvider {
 
     public SimpleFileProvider(List<File> files) {
         this.files = files;
+        interpretSourceAsSimpleFormattedStrings();
+    }
+
+    public SimpleFileProvider(String path) {
+        this.files = Arrays.asList(new File(path));
         interpretSourceAsSimpleFormattedStrings();
     }
 

@@ -1,7 +1,6 @@
 package CustomNewsAPI.Core.Parsers;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 import CustomNewsAPI.Core.APIElements.Collection;
 
@@ -45,13 +44,5 @@ public interface Parser {
             collection.printArticles(collection.getValidArticles());
         });
     }
-
-    /**
-     * High Level:
-     *      Every parser must have the ability to log invalid articles
-     * @param logger
-     */
-
-    public void logInvalidArticles(Logger logger);
 
 }

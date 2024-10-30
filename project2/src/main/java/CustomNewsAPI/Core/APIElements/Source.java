@@ -1,8 +1,5 @@
 package CustomNewsAPI.Core.APIElements;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Objects;
 
@@ -22,10 +19,10 @@ public class Source {
      * @param id
      * @param name
      */
-    @JsonCreator
+    
     public Source(
-            @JsonProperty("id") String id,
-            @JsonProperty("name") String name) {
+            String id,
+            String name) {
         this.id = id;
         this.name = name;
     }
@@ -35,7 +32,6 @@ public class Source {
      * @return
      */
     
-    @JsonIgnore
     public String getId() {
         return id;
     }
@@ -45,7 +41,6 @@ public class Source {
      * @return
      */
     
-    @JsonIgnore
     public String getName() {
         return name;
     }
@@ -55,7 +50,6 @@ public class Source {
      * Tested to hold each property of an equals method
      */
     
-    @JsonIgnore
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof Source)) {
@@ -74,7 +68,6 @@ public class Source {
      * @return
      */
 
-    @JsonIgnore
     static public Source generateValidTestSource(String name) {
         return new Source("testId", name);
     }

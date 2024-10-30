@@ -5,12 +5,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
 import java.util.Arrays;
 
+import CustomNewsAPI.Client.Entry;
 import CustomNewsAPI.Core.APIElements.Article;
 import CustomNewsAPI.Core.APIElements.Collection;
 import CustomNewsAPI.Core.Parsers.APIParser;
 import CustomNewsAPI.Core.Parsers.Parser;
-import CustomNewsAPI.Core.Providers.Provider;
 import CustomNewsAPI.Core.Providers.APIProviders.APIFileProvider;
+import CustomNewsAPI.Core.Providers.APIProviders.APIFormatProvider;
 
 /*
  * Context
@@ -18,14 +19,15 @@ import CustomNewsAPI.Core.Providers.APIProviders.APIFileProvider;
  *      No mocking was implemented as I am not sure if we are supposed/allowed to or not
  */
 
-class BasicParserTests {
+class APIParserTests {
     /**
-     * Tests: Whether the BasicParser has valid articles that correspond to the articles within the target file
+     * Tests: Whether the BasicParser has valid articles that correspond to the
+     * articles within the target file
      * Target File: "testInputs/smallGreenSet.json"
      * Assertions:
-     *  Verifies the equality of the generated Collection and the Expected Collection
-     *  Verifies the equlity of the generated Articles List and the expected Articles
-     *  Ensures that every article in the Collection is Valid
+     * Verifies the equality of the generated Collection and the Expected Collection
+     * Verifies the equlity of the generated Articles List and the expected Articles
+     * Ensures that every article in the Collection is Valid
      *
      * @see BasicParser.parse()
      */
@@ -37,8 +39,8 @@ class BasicParserTests {
 
         // create parser
         String filePath = "testInputs/smallGreenSet.json";
-        Provider provider = new APIFileProvider(filePath);
-        Parser parser = new APIParser(provider);
+        APIFormatProvider provider = new APIFileProvider(filePath);
+        Parser parser = new APIParser(provider, Entry.getLogger());
 
         assertEquals(expectedCollection, parser.getCollections().get(0));
         assertEquals(expectedArticles, parser.getCollections().get(0).getAllArticles());
@@ -47,11 +49,12 @@ class BasicParserTests {
     }
 
     /**
-     * Tests: Whether the BasicParser populates invalid articles that correspond to the articles within the target file
+     * Tests: Whether the BasicParser populates invalid articles that correspond to
+     * the articles within the target file
      * Target File: "testInputs/smallRedSet.json"
      * Assertions:
-     *  Verifies the equality of the generated Collection and the Expected Collection
-     *  Ensures that every article in the Collection is Invalid
+     * Verifies the equality of the generated Collection and the Expected Collection
+     * Ensures that every article in the Collection is Invalid
      *
      * @see BasicParser.parse()
      */
@@ -64,20 +67,21 @@ class BasicParserTests {
 
         // create parser
         String filePath = "testInputs/smallRedSet.json";
-        Provider provider = new APIFileProvider(filePath);
-        Parser parser = new APIParser(provider);
+        APIFormatProvider provider = new APIFileProvider(filePath);
+        Parser parser = new APIParser(provider, Entry.getLogger());
 
         assertEquals(expectedCollection, parser.getCollections().get(0));
         assertEquals(expectedArticles, parser.getCollections().get(0).getInvalidArticles());
     }
 
     /**
-     * Tests: Whether the BasicParser correctly populates valid and invalid articles that correspond to the articles within the target file
+     * Tests: Whether the BasicParser correctly populates valid and invalid articles
+     * that correspond to the articles within the target file
      * Target File: "testInputs/mixedGreenSet.json"
      * Assertions:
-     *  Verifies the equality of the generated Collection and the Expected Collection
-     *  Verifies the equlity of the generated Articles List and the expected Articles
-     *  Ensures that every article in the Collection is Valid
+     * Verifies the equality of the generated Collection and the Expected Collection
+     * Verifies the equlity of the generated Articles List and the expected Articles
+     * Ensures that every article in the Collection is Valid
      *
      * @see BasicParser.parse()
      */
@@ -89,8 +93,8 @@ class BasicParserTests {
 
         // create parser
         String filePath = "testInputs/smallMixedSet.json";
-        Provider provider = new APIFileProvider(filePath);
-        Parser parser = new APIParser(provider);
+        APIFormatProvider provider = new APIFileProvider(filePath);
+        Parser parser = new APIParser(provider, Entry.getLogger());
 
         List<Article> expectedInvalidArticles = Arrays.asList(expectedArticles.get(2));
         List<Article> expectedValidArticles = Arrays.asList(expectedArticles.get(0), expectedArticles.get(1));
@@ -102,9 +106,11 @@ class BasicParserTests {
     }
 
     /**
-     * Tests: The functionality of parsing multiple files and creating different collections for each file
+     * Tests: The functionality of parsing multiple files and creating different
+     * collections for each file
      * Assertions:
-     *  Compares the equality of the expected 3 greenSets and the result of parsing multiple files
+     * Compares the equality of the expected 3 greenSets and the result of parsing
+     * multiple files
      * 
      */
     @Test
@@ -112,8 +118,8 @@ class BasicParserTests {
 
         List<String> filePaths = Arrays.asList("testInputs/smallGreenSet.json", "testInputs/smallGreenSet.json",
                 "testInputs/smallGreenSet.json");
-        Provider provider = APIFileProvider.fromPaths(filePaths);
-        Parser parser = new APIParser(provider);
+        APIFormatProvider provider = APIFileProvider.fromPaths(filePaths);
+        Parser parser = new APIParser(provider, Entry.getLogger());
 
         List<Collection> expectedCollections = ParserTestHelpers.generateNCollections(3,
                 () -> ParserTestHelpers.getGreenSetArticles());
@@ -121,17 +127,20 @@ class BasicParserTests {
         assertEquals(parser.getCollections(), expectedCollections);
     }
 
-    /* method
-     * Tests: The functionality of parsing multiple files and creating different collections for each file
+    /*
+     * method
+     * Tests: The functionality of parsing multiple files and creating different
+     * collections for each file
      * Assertions:
-     *  Compares the equality of the expected 3 redSets and the result of parsing multiple files
+     * Compares the equality of the expected 3 redSets and the result of parsing
+     * multiple files
      */
     @Test
     void testParse_MultipleInvalidCollections() {
         List<String> filePaths = Arrays.asList("testInputs/smallRedSet.json", "testInputs/smallRedSet.json",
                 "testInputs/smallRedSet.json");
-        Provider provider = APIFileProvider.fromPaths(filePaths);
-        Parser parser = new APIParser(provider);
+        APIFormatProvider provider = APIFileProvider.fromPaths(filePaths);
+        Parser parser = new APIParser(provider, Entry.getLogger());
 
         List<Collection> expectedCollections = ParserTestHelpers.generateNCollections(3,
                 () -> ParserTestHelpers.getRedSetArticles());
@@ -139,17 +148,20 @@ class BasicParserTests {
         assertEquals(parser.getCollections(), expectedCollections);
     }
 
-    /* method
-     * Tests: The functionality of parsing multiple files and creating different collections for each file
+    /*
+     * method
+     * Tests: The functionality of parsing multiple files and creating different
+     * collections for each file
      * Assertions:
-     *  Compares the equality of the expected 3 mixedSets and the result of parsing multiple files
+     * Compares the equality of the expected 3 mixedSets and the result of parsing
+     * multiple files
      */
     @Test
     void testParse_MultipleMixedCollections() {
         List<String> filePaths = Arrays.asList("testInputs/smallMixedSet.json", "testInputs/smallMixedSet.json",
                 "testInputs/smallMixedSet.json");
-        Provider provider = APIFileProvider.fromPaths(filePaths);
-        Parser parser = new APIParser(provider);
+        APIFormatProvider provider = APIFileProvider.fromPaths(filePaths);
+        Parser parser = new APIParser(provider, Entry.getLogger());
 
         List<Collection> expectedCollections = ParserTestHelpers.generateNCollections(3,
                 () -> ParserTestHelpers.getMixedSetArticles());
@@ -157,34 +169,36 @@ class BasicParserTests {
         assertEquals(parser.getCollections(), expectedCollections);
     }
 
-    /* method
-     * Tests: The functionality of parsing multiple files and creating different collections for each file
+    /*
+     * method
+     * Tests: The functionality of parsing multiple files and creating different
+     * collections for each file
      * Assertions:
-     *  Compares the equality of the expected 5 input sets and the result of parsing each of the 5 files
+     * Compares the equality of the expected 5 input sets and the result of parsing
+     * each of the 5 files
      * Note:
-     *  This ensures that we can load the articles from different sources and of different sets into the parser
-     *  and expect it to perform correctly
+     * This ensures that we can load the articles from different sources and of
+     * different sets into the parser
+     * and expect it to perform correctly
      */
 
     @Test
     void testParse_MixedGreenRedCollections() {
         List<String> filePaths = Arrays.asList(
-        "testInputs/smallGreenSet.json", 
-            "testInputs/smallMixedSet.json",
-            "testInputs/smallRedSet.json",
-            "testInputs/smallMixedSet.json",
-            "testInputs/smallRedSet.json"
-            );
-        Provider provider = APIFileProvider.fromPaths(filePaths);
-        Parser parser = new APIParser(provider);
+                "testInputs/smallGreenSet.json",
+                "testInputs/smallMixedSet.json",
+                "testInputs/smallRedSet.json",
+                "testInputs/smallMixedSet.json",
+                "testInputs/smallRedSet.json");
+        APIFormatProvider provider = APIFileProvider.fromPaths(filePaths);
+        Parser parser = new APIParser(provider, Entry.getLogger());
 
         List<Collection> expectedCollections = Arrays.asList(
-            ParserTestHelpers.generateCollection(() -> ParserTestHelpers.getGreenSetArticles()),
-            ParserTestHelpers.generateCollection(() -> ParserTestHelpers.getMixedSetArticles()),
-            ParserTestHelpers.generateCollection(() -> ParserTestHelpers.getRedSetArticles()),
-            ParserTestHelpers.generateCollection(() -> ParserTestHelpers.getMixedSetArticles()),
-            ParserTestHelpers.generateCollection(() -> ParserTestHelpers.getRedSetArticles())
-        );
+                ParserTestHelpers.generateCollection(() -> ParserTestHelpers.getGreenSetArticles()),
+                ParserTestHelpers.generateCollection(() -> ParserTestHelpers.getMixedSetArticles()),
+                ParserTestHelpers.generateCollection(() -> ParserTestHelpers.getRedSetArticles()),
+                ParserTestHelpers.generateCollection(() -> ParserTestHelpers.getMixedSetArticles()),
+                ParserTestHelpers.generateCollection(() -> ParserTestHelpers.getRedSetArticles()));
 
         assertEquals(expectedCollections, parser.getCollections());
     }
