@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-10-24T20:18:32.399998400Z</date>
+  <millis>1729801112399</millis>
+  <nanos>998400</nanos>
+  <sequence>0</sequence>
+  <logger>CustomNewsAPI.Core.APIElements.Collection</logger>
+  <level>SEVERE</level>
+  <class>CustomNewsAPI.Core.Parsers.BasicParser</class>
+  <method>lambda$1</method>
+  <thread>1</thread>
+  <message>Invalid Article Detected: Title: null
+Description: It's macOS 11 now, but the DNA is the same.
+Date Published: Wed Mar 24 14:44:01 PDT 2021
+Source Link: https://arstechnica.com/gadgets/2021/03/its-been-20-years-since-the-launch-of-mac-os-x/
+</message>
+</record>
+<record>
+  <date>2024-10-24T20:18:32.434026Z</date>
+  <millis>1729801112434</millis>
+  <nanos>26000</nanos>
+  <sequence>1</sequence>
+  <logger>CustomNewsAPI.Core.APIElements.Collection</logger>
+  <level>SEVERE</level>
+  <class>CustomNewsAPI.Core.Parsers.BasicParser</class>
+  <method>lambda$1</method>
+  <thread>1</thread>
+  <message>Invalid Article Detected: Title: Vice President Kamala Harris to lead White House efforts to stem migration at the border - USA TODAY
+Description: Vice President Kamala Harris will  work on establishing a partnership with Mexico and the northern triangle of Honduras, Guatemala and El Salvador.
+Date Published: null
+Source Link: https://www.usatoday.com/story/news/politics/2021/03/24/kamala-harris-lead-biden-admin-stemming-migration-border/6984000002/
+</message>
+</record>
+<record>
+  <date>2024-10-24T20:18:32.434026Z</date>
+  <millis>1729801112434</millis>
+  <nanos>26000</nanos>
+  <sequence>2</sequence>
+  <logger>CustomNewsAPI.Core.APIElements.Collection</logger>
+  <level>SEVERE</level>
+  <class>CustomNewsAPI.Core.Parsers.BasicParser</class>
+  <method>lambda$1</method>
+  <thread>1</thread>
+  <message>Invalid Article Detected: Title: With a Police Raid and the Threat of Export Curbs on Vaccines, the E.U. Plays Tough - The New York Times
+Description: The bloc is tightening export rules in a bid to speed up its disappointing Covid inoculation campaign and stem political criticism.
+Date Published: null
+Source Link: null
+</message>
+</record>
+</log>
