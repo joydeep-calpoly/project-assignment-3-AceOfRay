@@ -32,17 +32,6 @@ public class SimpleParser implements Parser {
         parse(provider.provideJsonAsStrings());
     }
 
-    /**
-     * This constructor parses without logging
-     * This is ideal for testing this class and if we don't want to log invalid
-     * articles
-     * 
-     * @param provider
-     */
-    public SimpleParser(SimpleFormatProvider provider) {
-        parse(provider.provideJsonAsStrings());
-    }
-
     @Override
     public void parse(List<String> jsonStrings) {
 

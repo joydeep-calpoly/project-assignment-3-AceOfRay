@@ -130,4 +130,28 @@ public class MapperTestHelpers {
         
     }
 
+    static JSONObject getRedSimpleArticle() {
+        try {
+            return new JSONObject(
+            Files.readString(Path.of(new File("testInputs/simpleFormatInputs/redSimple.json").getAbsolutePath()))
+        );
+        } catch (IOException e) {
+            System.out.println("Invalid File: testInputs/smallGreenSet.json");
+            return null;
+        }
+        
+    }
+
+    static JSONObject getGreenSimpleArticle() {
+        try {
+            return new JSONObject(
+            Files.readString(Path.of(new File("testInputs/simpleFormatInputs/greenSimple.json").getAbsolutePath()))
+        );
+        } catch (IOException e) {
+            System.out.println("Invalid File: testInputs/smallGreenSet.json");
+            return null;
+        }
+        
+    }
+
 }

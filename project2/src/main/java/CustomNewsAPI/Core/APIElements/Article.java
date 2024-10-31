@@ -135,9 +135,7 @@ public class Article {
 
         try {
             this.url = new URI(url).toURL();
-        } catch (NullPointerException e) {
-
-        } catch (URISyntaxException | MalformedURLException e) {
+        } catch (NullPointerException | URISyntaxException | MalformedURLException e) {
             System.err.println(e.getMessage());
             System.exit(1);
         }

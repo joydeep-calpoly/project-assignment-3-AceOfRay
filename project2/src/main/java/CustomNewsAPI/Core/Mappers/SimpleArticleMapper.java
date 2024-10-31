@@ -17,7 +17,7 @@ public class SimpleArticleMapper implements Mapper<Article> {
                     json.getString("url"),
                     json.getString("publishedAt"));
         } catch (Exception e) {
-            throw new JSONException("An invalid SimpleFormat jsonString was used to create a JSONObject.\n Invalid String: " + json.toString());
+            throw new JSONException("Simple Articles must have non null 'title', 'description', 'url', and 'publishedAt' elements. An invalid SimpleFormat jsonString was used to create a JSONObject.\n Invalid String: " + json.toString());
         }
     }
 
