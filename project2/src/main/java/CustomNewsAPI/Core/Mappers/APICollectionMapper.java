@@ -13,7 +13,7 @@ public class APICollectionMapper implements Mapper<Collection> {
 
     @Override
     public Collection map(JSONObject json) throws JSONException {
-        return new Collection(json.getString("status"), Integer.parseInt(json.getString("totalResults")), parseArticles(json));
+        return new Collection(json.optString("status", null), Integer.parseInt(json.optString("totalResults", null)), parseArticles(json));
     }
 
     private List<Article> parseArticles(JSONObject json) {

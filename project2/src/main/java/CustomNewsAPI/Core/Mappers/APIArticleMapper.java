@@ -17,14 +17,14 @@ public class APIArticleMapper implements Mapper<Article> {
         try {
             JSONObject s = json.getJSONObject("source");
             return new Article(
-                    new Source(s.getString("id"), s.getString("name")),
-                    json.getString("author"),
-                    json.getString("title"),
-                    json.getString("description"),
-                    json.getString("url"),
-                    json.getString("urlToImage"),
-                    Date.from(Instant.from(DateTimeFormatter.ISO_INSTANT.parse(json.getString("publishedAt")))),
-                    json.getString("content"));
+                    new Source(s.optString("id", null), s.optString("name", null)),
+                    json.optString("author", null),
+                    json.optString("title", null),
+                    json.optString("description", null),
+                    json.optString("url", null),
+                    json.optString("urlToImage", null),
+                    Date.from(Instant.from(DateTimeFormatter.ISO_INSTANT.parse(json.optString("publishedAt", null)))),
+                    json.optString("content", null));
         } catch (JSONException e) {
             // Handle missing fields gracefully
             return new Article(

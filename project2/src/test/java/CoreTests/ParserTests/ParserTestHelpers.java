@@ -21,7 +21,7 @@ public class ParserTestHelpers {
      * They are verified to be accurate 
      */
 
-    static List<Article> getRedSetArticles() {
+    public static List<Article> getRedSetArticles() {
 
         try {
             return Arrays.asList(
@@ -58,7 +58,7 @@ public class ParserTestHelpers {
         }
     }
 
-    static List<Article> getGreenSetArticles() {
+    public static List<Article> getGreenSetArticles() {
         try {
             return Arrays.asList(
                     new Article(new Source("nbc-news", "NBC News"), "David K. Li, The Associated Press",

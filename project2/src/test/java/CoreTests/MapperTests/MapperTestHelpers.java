@@ -1,5 +1,10 @@
 package CoreTests.MapperTests;
 
+import org.json.JSONObject;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.io.File;
+import java.io.IOException;
 public class MapperTestHelpers {
 
     static String getGreenAPIArticleJsonArray() {
@@ -98,6 +103,31 @@ public class MapperTestHelpers {
                 + //
                 "The league's action came less than 24 hours after Peel officiated … [+1920 chars]\"\r\n" + //
                 "    }";
+    }
+
+
+    static JSONObject getGreenAPICollection() {
+        try {
+            return new JSONObject(
+            Files.readString(Path.of(new File("testInputs/smallGreenSet.json").getAbsolutePath()))
+        );
+        } catch (IOException e) {
+            System.out.println("Invalid File: testInputs/smallGreenSet.json");
+            return null;
+        }
+        
+    }
+
+    static JSONObject getRedAPICollection() {
+        try {
+            return new JSONObject(
+            Files.readString(Path.of(new File("testInputs/smallRedSet.json").getAbsolutePath()))
+        );
+        } catch (IOException e) {
+            System.out.println("Invalid File: testInputs/smallGreenSet.json");
+            return null;
+        }
+        
     }
 
 }

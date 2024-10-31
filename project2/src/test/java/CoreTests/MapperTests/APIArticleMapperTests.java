@@ -20,7 +20,7 @@ public class APIArticleMapperTests {
      *      That a single green Article gets mapped correctly
      */
     @Test
-    void testAPIArticleMapper_SingleGreen() {
+    void testAPIArticleMapper_Green() {
         Article expectedArticle = new Article(
                 new Source("nbc-news", "NBC News"), "David K. Li, The Associated Press",
                 "NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News",
@@ -46,7 +46,7 @@ public class APIArticleMapperTests {
      *      This article is red because it is missing the title attribute
      */
     @Test
-    void testAPIArticleMapper_SingleRed() {
+    void testAPIArticleMapper_Red() {
         Article expectedArticle = new Article(
                 new Source("nbc-news", "NBC News"), "David K. Li, The Associated Press",
                 null,
