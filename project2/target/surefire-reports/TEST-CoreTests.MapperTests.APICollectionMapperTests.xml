@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="CoreTests.ProviderTests.JsonFileProviderTests" time="0.025" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="CoreTests.MapperTests.APICollectionMapperTests" time="0.157" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="22"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -58,29 +58,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="66.0"/>
   </properties>
-  <testcase name="jsonFileProviderTest_ProvideJsonAsStrings_FromMultipleFiles" classname="CoreTests.ProviderTests.JsonFileProviderTests" time="0.008"/>
-  <testcase name="jsonFileProviderTest_ProvideJsonAsStrings_FromMultiplePaths" classname="CoreTests.ProviderTests.JsonFileProviderTests" time="0.0"/>
-  <testcase name="ProviderTest_Equals_NotEqual_ValidPaths" classname="CoreTests.ProviderTests.JsonFileProviderTests" time="0.009">
-    <system-out><![CDATA[Invalid File: smallBadSet.json
-]]></system-out>
-  </testcase>
-  <testcase name="ProviderTest_Equals_Equal_InvalidPaths" classname="CoreTests.ProviderTests.JsonFileProviderTests" time="0.0">
-    <system-out><![CDATA[Invalid File: undefined.json
-Invalid File: undefined.json
-Invalid File: undefined.json
-]]></system-out>
-  </testcase>
-  <testcase name="jsonFileProviderTest_ProvideJsonAsStrings_FromSinglePath" classname="CoreTests.ProviderTests.JsonFileProviderTests" time="0.0"/>
-  <testcase name="ProviderTest_Equals_NotEqual_InvalidPaths" classname="CoreTests.ProviderTests.JsonFileProviderTests" time="0.008">
-    <system-out><![CDATA[Invalid File: undefined1.json
-Invalid File: undefined2.json
-]]></system-out>
-  </testcase>
-  <testcase name="ProviderTest_Equals_Equal_ValidPaths" classname="CoreTests.ProviderTests.JsonFileProviderTests" time="0.0"/>
-  <testcase name="jsonFileProviderTest_ProvideJsonAsStrings_FromMultipleFiles_SomeValid" classname="CoreTests.ProviderTests.JsonFileProviderTests" time="0.0">
-    <system-out><![CDATA[Invalid File: undefined1.json
-Invalid File: undefined2.json
-Invalid File: undefined3.json
-]]></system-out>
-  </testcase>
+  <testcase name="testAPICollectionMapper_Red" classname="CoreTests.MapperTests.APICollectionMapperTests" time="0.138"/>
+  <testcase name="testAPICollectionMapper_Green" classname="CoreTests.MapperTests.APICollectionMapperTests" time="0.011"/>
 </testsuite>

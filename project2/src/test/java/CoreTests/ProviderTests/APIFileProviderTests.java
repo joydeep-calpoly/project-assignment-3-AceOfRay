@@ -12,7 +12,7 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
-class JsonFileProviderTests {
+class APIFileProviderTests {
 
     /**
      * Tests: The transient and Symmetric properties of the JsonFileProviders Equals
@@ -83,7 +83,7 @@ class JsonFileProviderTests {
     @Test
     void ProviderTest_Equals_NotEqual_ValidPaths() {
         String path1 = "testInputs/smallGreenSet.json";
-        String path2 = "testInputs/smallBadSet.json";
+        String path2 = "testInputs/smallRedSet.json";
 
         Provider provider1 = new APIFileProvider(path1);
         Provider provider2 = new APIFileProvider(path2);

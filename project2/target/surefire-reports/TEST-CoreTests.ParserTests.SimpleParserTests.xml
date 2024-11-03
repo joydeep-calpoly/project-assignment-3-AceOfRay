@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="CoreTests.ProviderTests.JsonFileProviderTests" time="0.025" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="CoreTests.ParserTests.SimpleParserTests" time="1.26" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="22"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -58,29 +58,12 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="66.0"/>
   </properties>
-  <testcase name="jsonFileProviderTest_ProvideJsonAsStrings_FromMultipleFiles" classname="CoreTests.ProviderTests.JsonFileProviderTests" time="0.008"/>
-  <testcase name="jsonFileProviderTest_ProvideJsonAsStrings_FromMultiplePaths" classname="CoreTests.ProviderTests.JsonFileProviderTests" time="0.0"/>
-  <testcase name="ProviderTest_Equals_NotEqual_ValidPaths" classname="CoreTests.ProviderTests.JsonFileProviderTests" time="0.009">
-    <system-out><![CDATA[Invalid File: smallBadSet.json
-]]></system-out>
-  </testcase>
-  <testcase name="ProviderTest_Equals_Equal_InvalidPaths" classname="CoreTests.ProviderTests.JsonFileProviderTests" time="0.0">
-    <system-out><![CDATA[Invalid File: undefined.json
-Invalid File: undefined.json
-Invalid File: undefined.json
-]]></system-out>
-  </testcase>
-  <testcase name="jsonFileProviderTest_ProvideJsonAsStrings_FromSinglePath" classname="CoreTests.ProviderTests.JsonFileProviderTests" time="0.0"/>
-  <testcase name="ProviderTest_Equals_NotEqual_InvalidPaths" classname="CoreTests.ProviderTests.JsonFileProviderTests" time="0.008">
-    <system-out><![CDATA[Invalid File: undefined1.json
-Invalid File: undefined2.json
-]]></system-out>
-  </testcase>
-  <testcase name="ProviderTest_Equals_Equal_ValidPaths" classname="CoreTests.ProviderTests.JsonFileProviderTests" time="0.0"/>
-  <testcase name="jsonFileProviderTest_ProvideJsonAsStrings_FromMultipleFiles_SomeValid" classname="CoreTests.ProviderTests.JsonFileProviderTests" time="0.0">
-    <system-out><![CDATA[Invalid File: undefined1.json
-Invalid File: undefined2.json
-Invalid File: undefined3.json
-]]></system-out>
+  <testcase name="simpleParserTest_GreenSingleArticleCollection" classname="CoreTests.ParserTests.SimpleParserTests" time="1.251">
+    <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build what is described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (C:\Users\rayra\.m2\repository\net\bytebuddy\byte-buddy-agent\1.15.4\byte-buddy-agent-1.15.4.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
   </testcase>
 </testsuite>

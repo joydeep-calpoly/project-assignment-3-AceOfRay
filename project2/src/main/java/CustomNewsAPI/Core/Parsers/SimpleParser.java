@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import CustomNewsAPI.Core.APIElements.Article;
 import CustomNewsAPI.Core.APIElements.Collection;
+import CustomNewsAPI.Core.Mappers.Mapper;
 import CustomNewsAPI.Core.Mappers.SimpleArticleMapper;
 import CustomNewsAPI.Core.Providers.SimpleProviders.SimpleFormatProvider;
 
@@ -35,7 +36,7 @@ public class SimpleParser implements Parser {
     @Override
     public void parse(List<String> jsonStrings) {
 
-        SimpleArticleMapper mapper = new SimpleArticleMapper();
+        Mapper<Article> mapper = new SimpleArticleMapper();
         AtomicInteger totalResults = new AtomicInteger(0);
         List<Article> incomingSimpleArticles = new ArrayList<>();
 
