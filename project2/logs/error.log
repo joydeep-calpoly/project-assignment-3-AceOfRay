@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-11-03T21:50:30.428122300Z</date>
+  <millis>1730670630428</millis>
+  <nanos>122300</nanos>
+  <sequence>0</sequence>
+  <logger>CustomNewsAPI.Core.APIElements.Collection</logger>
+  <level>SEVERE</level>
+  <class>CustomNewsAPI.Core.Parsers.SimpleParser</class>
+  <method>parseHelper</method>
+  <thread>1</thread>
+  <message>Caught a JSONException while parsing.
+
+A JSONObject text must begin with '{' at 0 [character 1 line 1]</message>
+</record>
+<record>
+  <date>2024-11-03T21:50:30.452341900Z</date>
+  <millis>1730670630452</millis>
+  <nanos>341900</nanos>
+  <sequence>1</sequence>
+  <logger>CustomNewsAPI.Core.APIElements.Collection</logger>
+  <level>SEVERE</level>
+  <class>CustomNewsAPI.Core.Parsers.SimpleParser</class>
+  <method>parseHelper</method>
+  <thread>1</thread>
+  <message>Caught a JSONException while parsing.
+
+A JSONObject text must begin with '{' at 0 [character 1 line 1]</message>
+</record>
+<record>
+  <date>2024-11-03T21:50:30.453344700Z</date>
+  <millis>1730670630453</millis>
+  <nanos>344700</nanos>
+  <sequence>2</sequence>
+  <logger>CustomNewsAPI.Core.APIElements.Collection</logger>
+  <level>SEVERE</level>
+  <class>CustomNewsAPI.Core.Parsers.SimpleParser</class>
+  <method>parseHelper</method>
+  <thread>1</thread>
+  <message>Caught a JSONException while parsing.
+
+A JSONObject text must begin with '{' at 0 [character 1 line 1]</message>
+</record>
+<record>
+  <date>2024-11-03T21:50:30.454342600Z</date>
+  <millis>1730670630454</millis>
+  <nanos>342600</nanos>
+  <sequence>3</sequence>
+  <logger>CustomNewsAPI.Core.APIElements.Collection</logger>
+  <level>SEVERE</level>
+  <class>CustomNewsAPI.Core.Parsers.SimpleParser</class>
+  <method>parseHelper</method>
+  <thread>1</thread>
+  <message>Caught a JSONException while parsing.
+
+A JSONObject text must begin with '{' at 0 [character 1 line 1]</message>
+</record>
+<record>
+  <date>2024-11-03T21:50:30.454342600Z</date>
+  <millis>1730670630454</millis>
+  <nanos>342600</nanos>
+  <sequence>4</sequence>
+  <logger>CustomNewsAPI.Core.APIElements.Collection</logger>
+  <level>SEVERE</level>
+  <class>CustomNewsAPI.Core.Parsers.SimpleParser</class>
+  <method>parseHelper</method>
+  <thread>1</thread>
+  <message>Caught a JSONException while parsing.
+
+A JSONObject text must begin with '{' at 0 [character 1 line 1]</message>
+</record>
+</log>
