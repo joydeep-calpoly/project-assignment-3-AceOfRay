@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="CoreTests.APIElementsTests.ArticleTest" time="0.095" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.1" name="CoreTests.ProviderTests.APIURLProviderTests" time="0.007" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="22"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -58,8 +58,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="66.0"/>
   </properties>
-  <testcase name="articleTestEquals_MixedAndUnequal" classname="CoreTests.APIElementsTests.ArticleTest" time="0.025"/>
-  <testcase name="articleTestEquals_BothValidAndEqual" classname="CoreTests.APIElementsTests.ArticleTest" time="0.027"/>
-  <testcase name="articleTestEquals_BothInvalidAndEqual" classname="CoreTests.APIElementsTests.ArticleTest" time="0.001"/>
-  <testcase name="articleTest_Immutability" classname="CoreTests.APIElementsTests.ArticleTest" time="0.013"/>
+  <testcase name="providerTest_MultipleArticles" classname="CoreTests.ProviderTests.APIURLProviderTests" time="0.002"/>
+  <testcase name="providerTest_SingleArticle" classname="CoreTests.ProviderTests.APIURLProviderTests" time="0.002"/>
 </testsuite>

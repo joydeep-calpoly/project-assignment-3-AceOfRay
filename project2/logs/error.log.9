@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-11-04T01:14:36.660673600Z</date>
+  <millis>1730682876660</millis>
+  <nanos>673600</nanos>
+  <sequence>5</sequence>
+  <logger>CustomNewsAPI.Core.APIElements.Collection</logger>
+  <level>SEVERE</level>
+  <class>CustomNewsAPI.Core.Parsers.SimpleParser</class>
+  <method>parseHelper</method>
+  <thread>1</thread>
+  <message>Caught a JSONException while parsing.
+
+A JSONObject text must begin with '{' at 0 [character 1 line 1]</message>
+</record>
+<record>
+  <date>2024-11-04T01:14:36.671628800Z</date>
+  <millis>1730682876671</millis>
+  <nanos>628800</nanos>
+  <sequence>6</sequence>
+  <logger>CustomNewsAPI.Core.APIElements.Collection</logger>
+  <level>SEVERE</level>
+  <class>CustomNewsAPI.Core.Parsers.SimpleParser</class>
+  <method>parseHelper</method>
+  <thread>1</thread>
+  <message>Caught a JSONException while parsing.
+{
+    "description": "Extend Assignment #1 to support multiple sources and to introduce source processor.",
+    "publishedAt": "2021-04-16 09:53:23.709229",
+    "url": "https://canvas.calpoly.edu/courses/55411/assignments/274503"
+  }
+Simple Articles must have non null 'title', 'description', 'url', and 'publishedAt' elements. An invalid SimpleFormat jsonString was used to create a JSONObject.
+ Invalid String: {"publishedAt":"2021-04-16 09:53:23.709229","description":"Extend Assignment #1 to support multiple sources and to introduce source processor.","url":"https://canvas.calpoly.edu/courses/55411/assignments/274503"}</message>
+</record>
+</log>

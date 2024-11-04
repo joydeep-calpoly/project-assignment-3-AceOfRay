@@ -12,6 +12,15 @@ import CustomNewsAPI.Core.APIElements.Source;
 
 public class APIArticleMapper implements Mapper<Article> {
 
+    /**
+     * HighLevel:
+     *      The APIArticleMapper maps JsonObjects into Articles
+     * Implementation Details:
+     *      This function uses the optString method of a JSONObject to get the 
+     * value associated with an article and null if it isn't present.
+     * @param json
+     */
+
     @Override
     public Article map(JSONObject json) throws JSONException {
         try {

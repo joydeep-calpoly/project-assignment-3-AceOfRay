@@ -2,7 +2,7 @@ package CustomNewsAPI.Client;
 
 import CustomNewsAPI.Core.APIElements.Collection;
 import CustomNewsAPI.Core.Parsers.*;
-//import CustomNewsAPI.Core.Providers.APIProviders.*;
+import CustomNewsAPI.Core.Providers.APIProviders.*;
 import CustomNewsAPI.Core.Providers.SimpleProviders.*;
 
 
@@ -22,11 +22,12 @@ public class Entry {
         Logger l = getLogger();
         //String filePath = "inputs/jsonInputs/bad.json";
         //String filePath = "inputs/jsonInputs/example.json";
-        String filePath = "inputs/base/simple.txt";
+        // String filePath = "inputs/base/simple.txt";
+        String filePath = "inputs/base/newsapi.txt";
 
-        //APIFormatProvider provider = new APIFileProvider(filePath);
-        SimpleFormatProvider provider = new SimpleFileProvider(filePath);
-        Parser parser = new SimpleParser(provider, l);
+        APIFormatProvider provider = new APIFileProvider(filePath);
+        //SimpleFormatProvider provider = new SimpleFileProvider(filePath);
+        Parser parser = new APIParser(provider, l);
         parser.printValidArticles();
 
     }

@@ -8,6 +8,10 @@ import CustomNewsAPI.Core.APIElements.Article;
 
 public class SimpleArticleMapper implements Mapper<Article> {
 
+    /**
+     * Implementation Details:
+     *      Maps json into a simple Article
+     */
     @Override
     public Article map(JSONObject json){
         try {

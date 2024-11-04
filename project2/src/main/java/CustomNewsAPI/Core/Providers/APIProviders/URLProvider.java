@@ -14,6 +14,10 @@ public class URLProvider implements APIFormatProvider {
     private List<URI> urls;
     private List<String> jsonStrings = new ArrayList<>();
 
+    /**
+     * Constructor that takes in a list of URLS to read from
+     * @param urls
+     */
     public URLProvider(List<URL> urls) {
         this.urls = urls.stream()
                 .map(url -> {
@@ -29,10 +33,19 @@ public class URLProvider implements APIFormatProvider {
         interpretSourceAsAPIFormattedStrings();
     }
 
+    /**
+     * Implementation Details:
+     *      Returns a defensive clone of the built JSONStrings
+     */
     @Override
     public List<String> provideJsonAsStrings() {
         return new ArrayList<>(jsonStrings);
     }
+
+    /**
+     * Implementation Details:
+     *      Builds the jsonStrings member by fetching the json from the injected URL's
+     */
 
     @Override
     public void interpretSourceAsAPIFormattedStrings() {
@@ -42,6 +55,14 @@ public class URLProvider implements APIFormatProvider {
         });
     }
 
+    /**
+     * Implementation Details:
+     *      Performs a GET request to through the passed in client to the target URL and returns the 
+     * body of the response. If request fails null is returned.
+     * @param client
+     * @param url
+     * @return
+     */
     private String fetchJson(HttpClient client, URI url) {
         try {
             HttpRequest request = HttpRequest.newBuilder()
