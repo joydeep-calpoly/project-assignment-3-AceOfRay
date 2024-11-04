@@ -22,7 +22,6 @@ public interface Provider {
      * interpretSourceAsStrings() method
      * @return
      */
-
     public List<String> provideJsonAsStrings();
 
 }
