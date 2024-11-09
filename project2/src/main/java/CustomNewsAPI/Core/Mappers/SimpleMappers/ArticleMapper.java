@@ -1,12 +1,13 @@
-package CustomNewsAPI.Core.Mappers;
+package CustomNewsAPI.Core.Mappers.SimpleMappers;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 
 import CustomNewsAPI.Core.APIElements.Article;
+import CustomNewsAPI.Core.Mappers.Mapper;
 
-public class SimpleArticleMapper implements Mapper<Article> {
+public class ArticleMapper implements Mapper<Article> {
 
     /**
      * Implementation Details:

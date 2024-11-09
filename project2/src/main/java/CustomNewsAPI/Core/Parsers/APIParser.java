@@ -9,8 +9,8 @@ import org.json.JSONObject;
 import org.json.JSONException;
 
 import CustomNewsAPI.Core.Mappers.Mapper;
+import CustomNewsAPI.Core.Mappers.APIMappers.CollectionMapper;
 import CustomNewsAPI.Core.APIElements.Collection;
-import CustomNewsAPI.Core.Mappers.APICollectionMapper;
 import CustomNewsAPI.Core.Providers.APIProviders.APIFormatProvider;
 
 
@@ -64,7 +64,7 @@ public class APIParser implements Parser {
      */
     @Override
     public void parse(List<String> jsonStrings) {
-        Mapper<Collection> mapper = new APICollectionMapper();
+        Mapper<Collection> mapper = new CollectionMapper();
         jsonStrings.forEach(jsonString -> {
             try {
                 articleCollections.add(mapper.map(new JSONObject(jsonString)));

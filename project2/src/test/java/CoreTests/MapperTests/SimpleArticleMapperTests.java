@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import CustomNewsAPI.Core.APIElements.Article;
 import CustomNewsAPI.Core.Mappers.Mapper;
-import CustomNewsAPI.Core.Mappers.SimpleArticleMapper;
+import CustomNewsAPI.Core.Mappers.SimpleMappers.ArticleMapper;
 
 public class SimpleArticleMapperTests {
 
@@ -22,7 +22,7 @@ public class SimpleArticleMapperTests {
                 "Extend Assignment #1 to support multiple sources and to introduce source processor.",
                 "https://canvas.calpoly.edu/courses/55411/assignments/274503", "2021-04-16 09:53:23.709229");
 
-        Mapper<Article> m = new SimpleArticleMapper();
+        Mapper<Article> m = new ArticleMapper();
         Article actual = m.map(MapperTestHelpers.getGreenSimpleArticle());
 
         assertEquals(expected, actual);
@@ -35,7 +35,7 @@ public class SimpleArticleMapperTests {
     @Test
     void testSimpleArticleMapper_RedTitle() {
 
-        Mapper<Article> m = new SimpleArticleMapper();
+        Mapper<Article> m = new ArticleMapper();
         assertThrows(JSONException.class, () -> {
             m.map(MapperTestHelpers.getRedSimpleArticle());
         });

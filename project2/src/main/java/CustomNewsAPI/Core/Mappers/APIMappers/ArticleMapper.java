@@ -1,4 +1,4 @@
-package CustomNewsAPI.Core.Mappers;
+package CustomNewsAPI.Core.Mappers.APIMappers;
 
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -9,8 +9,9 @@ import org.json.JSONObject;
 
 import CustomNewsAPI.Core.APIElements.Article;
 import CustomNewsAPI.Core.APIElements.Source;
+import CustomNewsAPI.Core.Mappers.Mapper;
 
-public class APIArticleMapper implements Mapper<Article> {
+public class ArticleMapper implements Mapper<Article> {
 
     /**
      * HighLevel:

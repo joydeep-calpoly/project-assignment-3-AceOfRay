@@ -1,4 +1,4 @@
-package CustomNewsAPI.Core.Mappers;
+package CustomNewsAPI.Core.Mappers.APIMappers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +8,9 @@ import org.json.JSONObject;
 
 import CustomNewsAPI.Core.APIElements.Article;
 import CustomNewsAPI.Core.APIElements.Collection;
+import CustomNewsAPI.Core.Mappers.Mapper;
 
-public class APICollectionMapper implements Mapper<Collection> {
+public class CollectionMapper implements Mapper<Collection> {
 
     /**
      * Implementation Details:
@@ -31,7 +32,7 @@ public class APICollectionMapper implements Mapper<Collection> {
      * @return
      */
     private List<Article> parseArticles(JSONObject json) {
-        Mapper<Article> mapper = new APIArticleMapper();
+        Mapper<Article> mapper = new ArticleMapper();
         List<Article> result = new ArrayList<>();
         json.getJSONArray("articles").forEach(article -> result.add(mapper.map((JSONObject) article)));
         return result;

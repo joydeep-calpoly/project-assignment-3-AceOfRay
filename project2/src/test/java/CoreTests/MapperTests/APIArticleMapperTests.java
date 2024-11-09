@@ -9,8 +9,8 @@ import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 
 import CustomNewsAPI.Core.APIElements.Article;
-import CustomNewsAPI.Core.Mappers.APIArticleMapper;
 import CustomNewsAPI.Core.Mappers.Mapper;
+import CustomNewsAPI.Core.Mappers.APIMappers.ArticleMapper;
 import CustomNewsAPI.Core.APIElements.Source;
 
 public class APIArticleMapperTests {
@@ -31,7 +31,7 @@ public class APIArticleMapperTests {
                 "The NHL fired referee Tim Peel on Wednesday after a hot mic captured him boasting about whistling a penalty because he \"wanted to.\"\r\nThe league's action came less than 24 hours after Peel officiated … [+1920 chars]"
                 );
         
-        Mapper<Article> m = new APIArticleMapper();
+        Mapper<Article> m = new ArticleMapper();
         JSONObject testObj = new JSONObject(MapperTestHelpers.getGreenAPIArticle());
         Article actualArticle = m.map(testObj);
         
@@ -57,7 +57,7 @@ public class APIArticleMapperTests {
                 "The NHL fired referee Tim Peel on Wednesday after a hot mic captured him boasting about whistling a penalty because he \"wanted to.\"\r\nThe league's action came less than 24 hours after Peel officiated … [+1920 chars]"
                 );
         
-        Mapper<Article> m = new APIArticleMapper();
+        Mapper<Article> m = new ArticleMapper();
         JSONObject testObj = new JSONObject(MapperTestHelpers.getRedAPIArticle());
         Article actualArticle = m.map(testObj);
         

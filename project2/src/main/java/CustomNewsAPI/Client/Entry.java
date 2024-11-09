@@ -1,13 +1,13 @@
 package CustomNewsAPI.Client;
 
 import CustomNewsAPI.Core.APIElements.Collection;
-import CustomNewsAPI.Core.Parsers.*;
-import CustomNewsAPI.Core.Providers.APIProviders.*;
-import CustomNewsAPI.Core.Providers.SimpleProviders.*;
+import CustomNewsAPI.Core.Engines.CoreEngine;
+import CustomNewsAPI.Core.Engines.Engine;
 
 
 import java.util.logging.Logger;
 import java.util.logging.FileHandler;
+import java.io.File;
 import java.io.IOException;
 
 public class Entry {
@@ -19,16 +19,19 @@ public class Entry {
      */
     public static void main(String[] args) {
 
-        Logger l = getLogger();
-        //String filePath = "inputs/jsonInputs/bad.json";
-        //String filePath = "inputs/jsonInputs/example.json";
-        // String filePath = "inputs/base/simple.txt";
-        String filePath = "inputs/base/newsapi.txt";
+        Engine e = new CoreEngine();
+        e.start(new File("[name]_engine.json"));
 
-        APIFormatProvider provider = new APIFileProvider(filePath);
-        //SimpleFormatProvider provider = new SimpleFileProvider(filePath);
-        Parser parser = new APIParser(provider, l);
-        parser.printValidArticles();
+        // Logger l = getLogger();
+        // //String filePath = "inputs/jsonInputs/bad.json";
+        // //String filePath = "inputs/jsonInputs/example.json";
+        // // String filePath = "inputs/base/simple.txt";
+        // String filePath = "inputs/base/newsapi.txt";
+
+        // APIFormatProvider provider = new APIFileProvider(filePath);
+        // //SimpleFormatProvider provider = new SimpleFileProvider(filePath);
+        // Parser parser = new APIParser(provider, l);
+        // parser.printValidArticles();
 
     }
 
