@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: CoreTests.ProviderTests.JsonFileProviderTests
--------------------------------------------------------------------------------
-<<<<<<< Updated upstream
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s -- in CoreTests.ProviderTests.JsonFileProviderTests
-=======
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s -- in CoreTests.ProviderTests.JsonFileProviderTests
->>>>>>> Stashed changes
