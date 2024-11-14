@@ -2,8 +2,8 @@ package CoreTests.APIElementsTests;
 
 import org.junit.jupiter.api.Test;
 
-import CustomNewsAPI.Core.APIElements.Collection;
-import CustomNewsAPI.Core.APIElements.Article;
+import CustomNewsAPI.Core.Parsing.APIElements.Article;
+import CustomNewsAPI.Core.Parsing.APIElements.Collection;
 
 import static org.junit.jupiter.api.Assertions.*;
 

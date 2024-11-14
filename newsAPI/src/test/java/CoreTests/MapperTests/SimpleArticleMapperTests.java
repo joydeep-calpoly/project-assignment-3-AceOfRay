@@ -6,9 +6,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.json.JSONException;
 import org.junit.jupiter.api.Test;
 
-import CustomNewsAPI.Core.APIElements.Article;
-import CustomNewsAPI.Core.Mappers.Mapper;
-import CustomNewsAPI.Core.Mappers.SimpleMappers.ArticleMapper;
+import CustomNewsAPI.Core.Parsing.APIElements.Article;
+import CustomNewsAPI.Core.Parsing.Mappers.Mapper;
+import CustomNewsAPI.Core.Parsing.Mappers.SimpleMappers.ArticleMapper;
 
 public class SimpleArticleMapperTests {
 

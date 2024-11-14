@@ -2,13 +2,13 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2024-11-04T05:37:33.096192100Z</date>
-  <millis>1730698653096</millis>
-  <nanos>192100</nanos>
+  <date>2024-11-14T05:02:27.555471600Z</date>
+  <millis>1731560547555</millis>
+  <nanos>471600</nanos>
   <sequence>6</sequence>
-  <logger>CustomNewsAPI.Core.APIElements.Collection</logger>
+  <logger>CustomNewsAPI.Core.Parsing.APIElements.Collection</logger>
   <level>SEVERE</level>
-  <class>CustomNewsAPI.Core.Parsers.SimpleParser</class>
+  <class>CustomNewsAPI.Core.Parsing.Parsers.SimpleParser</class>
   <method>parseHelper</method>
   <thread>1</thread>
   <message>Caught a JSONException while parsing.

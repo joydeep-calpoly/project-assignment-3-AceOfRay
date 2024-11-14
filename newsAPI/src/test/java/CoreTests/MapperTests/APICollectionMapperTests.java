@@ -5,9 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 import CoreTests.ParserTests.ParserTestHelpers;
-import CustomNewsAPI.Core.APIElements.Collection;
-import CustomNewsAPI.Core.Mappers.Mapper;
-import CustomNewsAPI.Core.Mappers.APIMappers.CollectionMapper;
+import CustomNewsAPI.Core.Parsing.APIElements.Collection;
+import CustomNewsAPI.Core.Parsing.Mappers.Mapper;
+import CustomNewsAPI.Core.Parsing.Mappers.APIMappers.CollectionMapper;
 
 public class APICollectionMapperTests {
     

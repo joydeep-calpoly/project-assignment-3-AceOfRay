@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * High Level:
  *      The Engine in this case is what interacts with the user defined inputs in order to parse the the given 
- * articles appropriately. User Defined Inputs are stored in [name]_engine.json files. These files will 
+ * articles appropriately. User Defined Inputs are stored in [name]_engine_config.json files. These files will 
  * contain article sources as well as their formats. The Engine will read the content of the given file and 
  * parse it. 
  */

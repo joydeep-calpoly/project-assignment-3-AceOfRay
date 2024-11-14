@@ -8,8 +8,8 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-import CustomNewsAPI.Core.Providers.Provider;
-import CustomNewsAPI.Core.Providers.SimpleProviders.SimpleFileProvider;
+import CustomNewsAPI.Core.Parsing.Providers.Provider;
+import CustomNewsAPI.Core.Parsing.Providers.SimpleProviders.SimpleFileProvider;
 
 /**
  * High Level:

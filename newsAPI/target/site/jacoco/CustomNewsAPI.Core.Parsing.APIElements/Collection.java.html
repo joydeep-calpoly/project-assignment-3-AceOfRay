@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Collection.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project2</a> &gt; <a href="index.source.html" class="el_package">CustomNewsAPI.Core.Parsing.APIElements</a> &gt; <span class="el_source">Collection.java</span></div><h1>Collection.java</h1><pre class="source lang-java linenums">package CustomNewsAPI.Core.Parsing.APIElements;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
+
+/** 
+ * High Level:
+ *      A collection in this project is a grouping of articles that come from one source.
+ * This object gets mapped by the Jacksonbind ObjectMapper when parsing Strings of Json. 
+ * A collection consists of the status, total number of articles and lists of all, valid,
+ * and invalid articles
+ */
+
+public class Collection {
+
+    // Collection Properties
+    private String status;
+    private Integer totalResults;
+    private List&lt;Article&gt; articles;
+    private List&lt;Article&gt; validArticles;
+    private List&lt;Article&gt; invalidArticles;
+
+    /**
+     * Constructs a Collection and creates defensive clones of mutable typed parameters
+     * @param status
+     * @param totalResults
+     * @param articles
+     */
+    public Collection(
+            String status,
+            Integer totalResults,
+<span class="fc" id="L34">            List&lt;Article&gt; articles) {</span>
+<span class="fc" id="L35">        this.status = status;</span>
+<span class="fc" id="L36">        this.totalResults = totalResults;</span>
+<span class="fc" id="L37">        this.articles = new ArrayList&lt;&gt;(articles);</span>
+<span class="fc" id="L38">        this.validArticles = populateArticles(true);</span>
+<span class="fc" id="L39">        this.invalidArticles = populateArticles(false);</span>
+<span class="fc" id="L40">    }</span>
+
+    /**
+     * Standard Printing Method printing any list of Articles
+     */
+
+    public void printArticles(List&lt;Article&gt; articles) {
+<span class="nc" id="L47">         articles.forEach(Article::print);</span>
+<span class="nc" id="L48">     }     </span>
+
+    /**
+     * Implementation Details:
+     *      This method will populate both valid and invalid article lists depending on the
+     * passed in valid parameter.
+     * 
+     * @param
+     * valid == true: Returns a list of all the valid articles in the Collection
+     * valid == false: Returns a list of all the invalid articles in the Collection
+     * @return
+     */
+
+     private List&lt;Article&gt; populateArticles(boolean valid) {
+<span class="fc" id="L62">       return this.articles.stream()</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">           .filter(article -&gt; article.isValid() == valid)</span>
+<span class="fc" id="L64">           .toList();</span>
+     }
+
+    /**
+     * The next three methods return defensive copies of valid, invalid, 
+     * and all articles in the collection respectively
+     * @return
+     */
+
+    public List&lt;Article&gt; getValidArticles() {
+<span class="fc" id="L74">        return new ArrayList&lt;&gt;(this.validArticles);</span>
+    }
+
+    public List&lt;Article&gt; getInvalidArticles() {
+<span class="fc" id="L78">        return new ArrayList&lt;&gt;(this.invalidArticles);</span>
+    }
+
+    public List&lt;Article&gt; getAllArticles() {
+<span class="fc" id="L82">        return new ArrayList&lt;&gt;(this.articles);</span>
+    }
+
+    /**
+     * Standard Equals Method
+     */
+
+    @Override
+    public boolean equals(Object obj) {
+<span class="pc bpc" id="L91" title="1 of 2 branches missed.">        if (this == obj) {</span>
+<span class="nc" id="L92">            return true;</span>
+        }
+<span class="pc bpc" id="L94" title="2 of 4 branches missed.">        if (obj == null || getClass() != obj.getClass()) {</span>
+<span class="nc" id="L95">            return false;</span>
+        }
+<span class="fc" id="L97">        Collection other = (Collection) obj;</span>
+
+        // Check basic properties
+<span class="pc bpc" id="L100" title="1 of 4 branches missed.">        if (!Objects.equals(status, other.status) || !Objects.equals(totalResults, other.totalResults)) {</span>
+<span class="fc" id="L101">            return false;</span>
+        }
+
+        // Check article lists using size and content equality
+<span class="fc" id="L105">        return Objects.equals(getAllArticles(), other.getAllArticles());</span>
+    }
+
+    /**
+     * Returns the immutable original totalResults field
+     * @return
+     */
+
+    public Integer getTotalResults() {
+<span class="nc" id="L114">        return totalResults;</span>
+    }
+
+    /**
+     * Returns the immutable original status field
+     * @return
+     */
+
+    public String getStatus() {
+<span class="nc" id="L123">        return status;</span>
+    }
+
+    /**
+     * Returns a valid collection for testing purposes
+     * Status is parameterized to enable control equality/inequality
+     * @param status
+     * @return
+     */
+
+    static public Collection generateValidCollection(String status) {
+<span class="fc" id="L134">        return new Collection(status, 1, Arrays.asList(Article.generateValidTestArticle(&quot;firstArticle&quot;),</span>
+<span class="fc" id="L135">                Article.generateValidTestArticle(&quot;secondArticle&quot;)));</span>
+    }
+
+    /**
+     * Standard toString method using a StringBuilder
+     */
+
+    @Override
+    public String toString() {
+<span class="nc" id="L144">        return new StringBuilder()</span>
+<span class="nc" id="L145">                .append(&quot;Collection {&quot;)</span>
+<span class="nc" id="L146">                .append(&quot;status= &quot;)</span>
+<span class="nc" id="L147">                .append(status)</span>
+<span class="nc" id="L148">                .append(&quot;\n&quot;)</span>
+<span class="nc" id="L149">                .append(&quot;totalResults= &quot;)</span>
+<span class="nc" id="L150">                .append(totalResults)</span>
+<span class="nc" id="L151">                .append(&quot;\n&quot;)</span>
+<span class="nc" id="L152">                .append(&quot;articles= &quot;)</span>
+<span class="nc" id="L153">                .append(articles)</span>
+<span class="nc" id="L154">                .append(&quot;\n&quot;)</span>
+<span class="nc" id="L155">                .append(&quot;validArticles= &quot;)</span>
+<span class="nc" id="L156">                .append(validArticles)</span>
+<span class="nc" id="L157">                .append(&quot;\n&quot;)</span>
+<span class="nc" id="L158">                .append(&quot;invalidArticles= &quot;)</span>
+<span class="nc" id="L159">                .append(invalidArticles)</span>
+<span class="nc" id="L160">                .append(&quot;}&quot;)</span>
+<span class="nc" id="L161">                .toString();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

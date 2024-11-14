@@ -14,12 +14,12 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import CustomNewsAPI.Client.Entry;
-import CustomNewsAPI.Core.APIElements.Article;
-import CustomNewsAPI.Core.APIElements.Collection;
-import CustomNewsAPI.Core.Parsers.Parser;
-import CustomNewsAPI.Core.Parsers.SimpleParser;
-import CustomNewsAPI.Core.Providers.SimpleProviders.SimpleFileProvider;
-import CustomNewsAPI.Core.Providers.SimpleProviders.SimpleFormatProvider;
+import CustomNewsAPI.Core.Parsing.APIElements.Article;
+import CustomNewsAPI.Core.Parsing.APIElements.Collection;
+import CustomNewsAPI.Core.Parsing.Parsers.Parser;
+import CustomNewsAPI.Core.Parsing.Parsers.SimpleParser;
+import CustomNewsAPI.Core.Parsing.Providers.SimpleProviders.SimpleFileProvider;
+import CustomNewsAPI.Core.Parsing.Providers.SimpleProviders.SimpleFormatProvider;
 
 public class SimpleParserTests {
 

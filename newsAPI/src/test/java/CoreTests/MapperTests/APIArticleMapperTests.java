@@ -8,10 +8,10 @@ import java.util.Date;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 
-import CustomNewsAPI.Core.APIElements.Article;
-import CustomNewsAPI.Core.Mappers.Mapper;
-import CustomNewsAPI.Core.Mappers.APIMappers.ArticleMapper;
-import CustomNewsAPI.Core.APIElements.Source;
+import CustomNewsAPI.Core.Parsing.APIElements.Article;
+import CustomNewsAPI.Core.Parsing.APIElements.ArticleSource;
+import CustomNewsAPI.Core.Parsing.Mappers.Mapper;
+import CustomNewsAPI.Core.Parsing.Mappers.APIMappers.ArticleMapper;
 
 public class APIArticleMapperTests {
 
@@ -22,7 +22,7 @@ public class APIArticleMapperTests {
     @Test
     void testAPIArticleMapper_Green() {
         Article expectedArticle = new Article(
-                new Source("nbc-news", "NBC News"), "David K. Li, The Associated Press",
+                new ArticleSource("nbc-news", "NBC News"), "David K. Li, The Associated Press",
                 "NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News",
                 "NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment",
                 "https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954",
@@ -48,7 +48,7 @@ public class APIArticleMapperTests {
     @Test
     void testAPIArticleMapper_Red() {
         Article expectedArticle = new Article(
-                new Source("nbc-news", "NBC News"), "David K. Li, The Associated Press",
+                new ArticleSource("nbc-news", "NBC News"), "David K. Li, The Associated Press",
                 null,
                 "NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment",
                 "https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954",

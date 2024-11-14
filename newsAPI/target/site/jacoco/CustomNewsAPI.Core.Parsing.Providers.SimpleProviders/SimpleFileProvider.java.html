@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SimpleFileProvider.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project2</a> &gt; <a href="index.source.html" class="el_package">CustomNewsAPI.Core.Parsing.Providers.SimpleProviders</a> &gt; <span class="el_source">SimpleFileProvider.java</span></div><h1>SimpleFileProvider.java</h1><pre class="source lang-java linenums">package CustomNewsAPI.Core.Parsing.Providers.SimpleProviders;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class SimpleFileProvider implements SimpleFormatProvider {
+    private final List&lt;File&gt; files;
+<span class="pc" id="L13">    private List&lt;String&gt; jsonStrings = new ArrayList&lt;&gt;();</span>
+
+    /**
+     * Constructor for multiple files
+     * @param files
+     */
+<span class="fc" id="L19">    public SimpleFileProvider(List&lt;File&gt; files) {</span>
+<span class="fc" id="L20">        this.files = files;</span>
+<span class="fc" id="L21">        interpretSourceAsSimpleFormattedStrings();</span>
+<span class="fc" id="L22">    }</span>
+
+    /**
+     * Constructor for a single path
+     * @param path
+     */
+<span class="nc" id="L28">    public SimpleFileProvider(String path) {</span>
+<span class="nc" id="L29">        this.files = Arrays.asList(new File(path));</span>
+<span class="nc" id="L30">        interpretSourceAsSimpleFormattedStrings();</span>
+<span class="nc" id="L31">    }</span>
+
+    /**
+     * Returns a defensive clone of the built jsonStrings
+     */
+    @Override
+    public List&lt;String&gt; provideJsonAsStrings() {
+<span class="fc" id="L38">        return new ArrayList&lt;&gt;(jsonStrings);</span>
+    }
+
+    /**
+     * Implementation Details:
+     *      Builds the jsonStrings list with the contents read from each file in the files list
+     */
+    @Override
+    public void interpretSourceAsSimpleFormattedStrings() {
+<span class="fc" id="L47">        files.forEach(file -&gt; {</span>
+            try {
+<span class="fc" id="L49">                jsonStrings.add(Files.readString(Path.of(file.getAbsolutePath())));</span>
+<span class="nc" id="L50">            } catch (IOException e) {</span>
+<span class="nc" id="L51">                System.out.println(&quot;Invalid File: &quot; + file.getName());</span>
+<span class="fc" id="L52">            }</span>
+<span class="fc" id="L53">        });</span>
+<span class="fc" id="L54">    }</span>
+
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

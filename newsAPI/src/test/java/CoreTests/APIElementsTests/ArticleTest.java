@@ -3,8 +3,8 @@ package CoreTests.APIElementsTests;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
-import CustomNewsAPI.Core.APIElements.Article;
-import CustomNewsAPI.Core.APIElements.Source;
+import CustomNewsAPI.Core.Parsing.APIElements.Article;
+import CustomNewsAPI.Core.Parsing.APIElements.ArticleSource;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -64,14 +64,14 @@ public class ArticleTest {
             Date cDate = new Date(1);
             
             Article a = new Article(
-                    new Source("id", "name"),
+                    new ArticleSource("id", "name"),
                     "author",
                     "title",
                     "description", aLink, aImageLink,
                     aDate, "content");
 
             Article b = new Article(
-                        new Source("id", "name"),
+                        new ArticleSource("id", "name"),
                         "author",
                         "title",
                         "description", bLink, bImageLink,
@@ -80,7 +80,7 @@ public class ArticleTest {
             assertTrue(a.equals(b));
 
             Article c = new Article(
-                        new Source("id", "name"),
+                        new ArticleSource("id", "name"),
                         "author",
                         "title",
                         "description", cLink, cImageLink,

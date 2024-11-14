@@ -7,6 +7,9 @@ public class CoreEngine implements Engine {
 
     @Override
     public void start(File f) {
+        // read contents of file
+        // maybe create a format object out of the contents
+        // have the parser visit the format class and parse the article 
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'start'");
     }

@@ -1,9 +1,8 @@
 package CustomNewsAPI.Client;
 
-import CustomNewsAPI.Core.APIElements.Collection;
 import CustomNewsAPI.Core.Engines.CoreEngine;
 import CustomNewsAPI.Core.Engines.Engine;
-
+import CustomNewsAPI.Core.Parsing.APIElements.Collection;
 
 import java.util.logging.Logger;
 import java.util.logging.FileHandler;
@@ -20,7 +19,7 @@ public class Entry {
     public static void main(String[] args) {
 
         Engine e = new CoreEngine();
-        e.start(new File("[name]_engine.json"));
+        e.start(new File("[name]_engine_config.json"));
 
         // Logger l = getLogger();
         // //String filePath = "inputs/jsonInputs/bad.json";

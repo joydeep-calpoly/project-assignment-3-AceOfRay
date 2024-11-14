@@ -2,8 +2,8 @@ package CoreTests.ProviderTests;
 
 import org.junit.jupiter.api.Test;
 
-import CustomNewsAPI.Core.Providers.Provider;
-import CustomNewsAPI.Core.Providers.APIProviders.APIFileProvider;
+import CustomNewsAPI.Core.Parsing.Providers.Provider;
+import CustomNewsAPI.Core.Parsing.Providers.APIProviders.APIFileProvider;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;

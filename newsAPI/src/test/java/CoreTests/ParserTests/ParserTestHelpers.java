@@ -2,16 +2,17 @@ package CoreTests.ParserTests;
 
 import java.util.List;
 import java.util.Arrays;
-import CustomNewsAPI.Core.APIElements.Article;
-import CustomNewsAPI.Core.APIElements.Collection;
-import CustomNewsAPI.Core.APIElements.Source;
-
 import java.util.Date;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.Instant;
 import java.util.stream.Stream;
+
+import CustomNewsAPI.Core.Parsing.APIElements.Article;
+import CustomNewsAPI.Core.Parsing.APIElements.Collection;
+import CustomNewsAPI.Core.Parsing.APIElements.ArticleSource;
+
 import java.util.function.Supplier;
 
 public class ParserTestHelpers {
@@ -26,7 +27,7 @@ public class ParserTestHelpers {
         try {
             return Arrays.asList(
 
-                    new Article(new Source("nbc-news", "NBC News"), "David K. Li, The Associated Press",
+                    new Article(new ArticleSource("nbc-news", "NBC News"), "David K. Li, The Associated Press",
                             null, "NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment",
                             new URI("https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954")
                                     .toURL(),
@@ -35,7 +36,7 @@ public class ParserTestHelpers {
                             Date.from(Instant.parse("2021-03-24T19:06:32Z")),
                             "The NHL fired referee Tim Peel on Wednesday after a hot mic captured him boasting about whistling a penalty because he \"wanted to.\"\r\nThe league's action came less than 24 hours after Peel officiated … [+1920 chars]"),
 
-                    new Article(new Source("the-hill", "The Hill"), "Mychael Schnell",
+                    new Article(new ArticleSource("the-hill", "The Hill"), "Mychael Schnell",
                             null, "A new coronavirus strain has been detected in India, the ...",
                             new URI("https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india")
                                     .toURL(),
@@ -44,7 +45,7 @@ public class ParserTestHelpers {
                             Date.from(Instant.parse("2021-03-24T18:59:09Z")),
                             "A new coronavirus strain has been detected in India, the nation's health ministry announced on Wednesday, but officials have not yet determined if the variant is contributing to a surge of cases in t… [+1764 chars]"),
 
-                    new Article(new Source(null, "NPR"), "Rachel Treisman",
+                    new Article(new ArticleSource(null, "NPR"), "Rachel Treisman",
                             null,
                             "The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.",
                             new URI("https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields")
@@ -61,7 +62,7 @@ public class ParserTestHelpers {
     public static List<Article> getGreenSetArticles() {
         try {
             return Arrays.asList(
-                    new Article(new Source("nbc-news", "NBC News"), "David K. Li, The Associated Press",
+                    new Article(new ArticleSource("nbc-news", "NBC News"), "David K. Li, The Associated Press",
                             "NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News",
                             "NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment",
                             new URI("https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954")
@@ -71,7 +72,7 @@ public class ParserTestHelpers {
                             Date.from(Instant.parse("2021-03-24T19:06:32Z")),
                             "The NHL fired referee Tim Peel on Wednesday after a hot mic captured him boasting about whistling a penalty because he \"wanted to.\"\r\nThe league's action came less than 24 hours after Peel officiated … [+1920 chars]"),
 
-                    new Article(new Source("the-hill", "The Hill"), "Mychael Schnell",
+                    new Article(new ArticleSource("the-hill", "The Hill"), "Mychael Schnell",
                             "New coronavirus strain detected in India | TheHill - The Hill",
                             "A new coronavirus strain has been detected in India, the ...",
                             new URI("https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india")
@@ -81,7 +82,7 @@ public class ParserTestHelpers {
                             Date.from(Instant.parse("2021-03-24T18:59:09Z")),
                             "A new coronavirus strain has been detected in India, the nation's health ministry announced on Wednesday, but officials have not yet determined if the variant is contributing to a surge of cases in t… [+1764 chars]"),
 
-                    new Article(new Source(null, "NPR"), "Rachel Treisman",
+                    new Article(new ArticleSource(null, "NPR"), "Rachel Treisman",
                             "Historic Image Of Black Hole In Polarized Light From Event Horizon Telescope - NPR",
                             "The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.",
                             new URI("https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields")
@@ -100,7 +101,7 @@ public class ParserTestHelpers {
         
         try {
             return Arrays.asList(
-                new Article(new Source("nbc-news", "NBC News"), "David K. Li, The Associated Press",
+                new Article(new ArticleSource("nbc-news", "NBC News"), "David K. Li, The Associated Press",
                         "NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News",
                         "NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment",
                         new URI("https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954")
@@ -111,7 +112,7 @@ public class ParserTestHelpers {
                         "The NHL fired referee Tim Peel on Wednesday after a hot mic captured him boasting about whistling a penalty because he \"wanted to.\"\r\nThe league's action came less than 24 hours after Peel officiated … [+1920 chars]"),
 
         
-                new Article(new Source("the-hill", "The Hill"), "Mychael Schnell",
+                new Article(new ArticleSource("the-hill", "The Hill"), "Mychael Schnell",
                         "New coronavirus strain detected in India | TheHill - The Hill",
                         "A new coronavirus strain has been detected in India, the ...",
                         new URI("https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india")
@@ -121,7 +122,7 @@ public class ParserTestHelpers {
                         Date.from(Instant.parse("2021-03-24T18:59:09Z")),
                         "A new coronavirus strain has been detected in India, the nation's health ministry announced on Wednesday, but officials have not yet determined if the variant is contributing to a surge of cases in t… [+1764 chars]"),
         
-                new Article(new Source(null, "NPR"), "Rachel Treisman",
+                new Article(new ArticleSource(null, "NPR"), "Rachel Treisman",
                         null,
                         "The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.",
                         new URI("https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields")

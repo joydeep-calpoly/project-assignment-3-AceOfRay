@@ -6,12 +6,12 @@ import java.util.List;
 import java.util.Arrays;
 
 import CustomNewsAPI.Client.Entry;
-import CustomNewsAPI.Core.APIElements.Article;
-import CustomNewsAPI.Core.APIElements.Collection;
-import CustomNewsAPI.Core.Parsers.APIParser;
-import CustomNewsAPI.Core.Parsers.Parser;
-import CustomNewsAPI.Core.Providers.APIProviders.APIFileProvider;
-import CustomNewsAPI.Core.Providers.APIProviders.APIFormatProvider;
+import CustomNewsAPI.Core.Parsing.APIElements.Article;
+import CustomNewsAPI.Core.Parsing.APIElements.Collection;
+import CustomNewsAPI.Core.Parsing.Parsers.APIParser;
+import CustomNewsAPI.Core.Parsing.Parsers.Parser;
+import CustomNewsAPI.Core.Parsing.Providers.APIProviders.APIFileProvider;
+import CustomNewsAPI.Core.Parsing.Providers.APIProviders.APIFormatProvider;
 
 /*
  * Context

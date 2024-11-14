@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Parser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project2</a> &gt; <a href="index.source.html" class="el_package">CustomNewsAPI.Core.Parsing.Parsers</a> &gt; <span class="el_source">Parser.java</span></div><h1>Parser.java</h1><pre class="source lang-java linenums">package CustomNewsAPI.Core.Parsing.Parsers;
+
+import java.util.List;
+
+import CustomNewsAPI.Core.Parsing.APIElements.Collection;
+
+/*
+ * The parser Interface provides flexibility when designing different types of parsers, 
+ * Some example possible Parsers are:
+ *      Queryable Parser:
+ *          If we wanted to make a parser that allows for us to query articles from certain
+ *          sources; this interface allows for such an implementation
+ *      Mutable Parser:
+ *          If we wanted to load articles from another source into our current collection
+ *          ; this interface allows for that
+ */ 
+
+public interface Parser {
+    /**
+     * HighLevel:
+     *      The parse method should read json strings and parse the articles into whatever type of data
+     * structure is useful to the implementing class. Every parser should have a parse method that populates
+     * its data structure.
+     * @param jsonStrings
+     */
+
+    public void parse(List&lt;String&gt; jsonStrings);
+
+    /**
+     * HighLevel:
+     *      Each parser must return the parsed json in the form List&lt;Collection&gt;
+     * @return
+     */
+
+    public List&lt;Collection&gt; getCollections();
+
+    /**
+     * HighLevel:
+     *      Each parser must be able to print the valid articles it has obtained from it's provider
+     */
+
+    default void printValidArticles() {
+<span class="nc" id="L43">        getCollections().forEach(collection -&gt; {</span>
+<span class="nc" id="L44">            collection.printArticles(collection.getValidArticles());</span>
+<span class="nc" id="L45">        });</span>
+<span class="nc" id="L46">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

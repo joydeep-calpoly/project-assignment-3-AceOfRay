@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>APIParser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project2</a> &gt; <a href="index.source.html" class="el_package">CustomNewsAPI.Core.Parsing.Parsers</a> &gt; <span class="el_source">APIParser.java</span></div><h1>APIParser.java</h1><pre class="source lang-java linenums">package CustomNewsAPI.Core.Parsing.Parsers;
+
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.logging.Logger;
+
+import org.json.JSONObject;
+import org.json.JSONException;
+
+import CustomNewsAPI.Core.Parsing.APIElements.Collection;
+import CustomNewsAPI.Core.Parsing.Mappers.Mapper;
+import CustomNewsAPI.Core.Parsing.Mappers.APIMappers.CollectionMapper;
+import CustomNewsAPI.Core.Parsing.Providers.APIProviders.APIFormatProvider;
+
+
+
+/**
+ * HighLevel:
+ *      The BasicParser depends on constructor dependency injection to perform the parsing tasks
+ * Parsing of the given files is done automatically and it's generated collection(s) are retrievable 
+ * by the getCollections() method. This parser expects at least 1 up to n json strings to be provided 
+ * by the provider. This parser is meant to be a simple when compared to possible implementations in 
+ * the Parser Interface.
+ * 
+ * Logging:
+ *      Logging is performed by request and enabled by passing a logger into the constructor
+ * 
+ */
+
+public class APIParser implements Parser {
+<span class="fc" id="L32">    private final List&lt;Collection&gt; articleCollections = new ArrayList&lt;&gt;();</span>
+    private final Logger logger;
+
+    /**
+     * This constructor parses and logs
+     * Ideal for client use
+     * @param provider
+     * @param logger
+     */
+
+<span class="fc" id="L42">    public APIParser(APIFormatProvider provider, Logger logger) {</span>
+<span class="fc" id="L43">        this.logger = logger;</span>
+<span class="fc" id="L44">        parse(provider.provideJsonAsStrings());</span>
+<span class="fc" id="L45">    }</span>
+
+    /**
+     * Implementation Details:
+     *      getCollections() returns a defensive copy of the generated collections from parsing
+     */
+
+    @Override
+    public List&lt;Collection&gt; getCollections() {
+<span class="fc" id="L54">        return new ArrayList&lt;&gt;(this.articleCollections);</span>
+    }
+
+
+    /**
+     * Implementation Details:
+     *      This method walks through the jsonStrings provided by the provider and uses the
+     * jacksonbind ObjectMapper to read the values and map them into the corresponding collection.
+     * 
+     * @param jsonStrings
+     */
+    @Override
+    public void parse(List&lt;String&gt; jsonStrings) {
+<span class="fc" id="L67">        Mapper&lt;Collection&gt; mapper = new CollectionMapper();</span>
+<span class="fc" id="L68">        jsonStrings.forEach(jsonString -&gt; {</span>
+            try {
+<span class="fc" id="L70">                articleCollections.add(mapper.map(new JSONObject(jsonString)));</span>
+<span class="nc" id="L71">            } catch (JSONException e) {</span>
+<span class="nc" id="L72">                logger.severe(&quot;Caught a JSONException while parsing.\n&quot; + jsonString + &quot;\n&quot; + e.getMessage());</span>
+<span class="fc" id="L73">            }</span>
+<span class="fc" id="L74">        });</span>
+<span class="fc" id="L75">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
