@@ -1,0 +1,488 @@
+-------------------------------------------------------------------------------
+Test set: CoreTests.ParserTests.BasicParserTests
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 4, Errors: 3, Skipped: 0, Time elapsed: 0.253 s <<< FAILURE! -- in CoreTests.ParserTests.BasicParserTests
+CoreTests.ParserTests.BasicParserTests.testParse_MixedGreenRedCollections -- Time elapsed: 0.125 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+expected: <[Collection {status= ok
+totalResults= 3
+articles= [Title: NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: New coronavirus strain detected in India | TheHill - The Hill
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: Historic Image Of Black Hole In Polarized Light From Event Horizon Telescope - NPR
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]
+validArticles= [Title: NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: New coronavirus strain detected in India | TheHill - The Hill
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: Historic Image Of Black Hole In Polarized Light From Event Horizon Telescope - NPR
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]
+invalidArticles= []}, Collection {status= ok
+totalResults= 3
+articles= [Title: NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: New coronavirus strain detected in India | TheHill - The Hill
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: null
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]
+validArticles= [Title: NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: New coronavirus strain detected in India | TheHill - The Hill
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+]
+invalidArticles= [Title: null
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]}, Collection {status= ok
+totalResults= 3
+articles= [Title: null
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: null
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: null
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]
+validArticles= []
+invalidArticles= [Title: null
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: null
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: null
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]}, Collection {status= ok
+totalResults= 3
+articles= [Title: NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: New coronavirus strain detected in India | TheHill - The Hill
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: null
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]
+validArticles= [Title: NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: New coronavirus strain detected in India | TheHill - The Hill
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+]
+invalidArticles= [Title: null
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]}, Collection {status= ok
+totalResults= 3
+articles= [Title: null
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: null
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: null
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]
+validArticles= []
+invalidArticles= [Title: null
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: null
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: null
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]}]> but was: <[]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at CoreTests.ParserTests.BasicParserTests.testParse_MixedGreenRedCollections(BasicParserTests.java:203)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+CoreTests.ParserTests.BasicParserTests.testParse_AllValidArticles -- Time elapsed: 0.008 s <<< ERROR!
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
+	at java.base/java.util.Objects.checkIndex(Objects.java:365)
+	at java.base/java.util.ArrayList.get(ArrayList.java:428)
+	at CoreTests.ParserTests.BasicParserTests.testParse_AllValidArticles(BasicParserTests.java:45)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+CoreTests.ParserTests.BasicParserTests.testParse_MultipleAllValidCollections -- Time elapsed: 0.034 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+expected: <[]> but was: <[Collection {status= ok
+totalResults= 3
+articles= [Title: NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: New coronavirus strain detected in India | TheHill - The Hill
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: Historic Image Of Black Hole In Polarized Light From Event Horizon Telescope - NPR
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]
+validArticles= [Title: NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: New coronavirus strain detected in India | TheHill - The Hill
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: Historic Image Of Black Hole In Polarized Light From Event Horizon Telescope - NPR
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]
+invalidArticles= []}, Collection {status= ok
+totalResults= 3
+articles= [Title: NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: New coronavirus strain detected in India | TheHill - The Hill
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: Historic Image Of Black Hole In Polarized Light From Event Horizon Telescope - NPR
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]
+validArticles= [Title: NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: New coronavirus strain detected in India | TheHill - The Hill
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: Historic Image Of Black Hole In Polarized Light From Event Horizon Telescope - NPR
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]
+invalidArticles= []}, Collection {status= ok
+totalResults= 3
+articles= [Title: NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: New coronavirus strain detected in India | TheHill - The Hill
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: Historic Image Of Black Hole In Polarized Light From Event Horizon Telescope - NPR
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]
+validArticles= [Title: NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: New coronavirus strain detected in India | TheHill - The Hill
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: Historic Image Of Black Hole In Polarized Light From Event Horizon Telescope - NPR
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]
+invalidArticles= []}]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at CoreTests.ParserTests.BasicParserTests.testParse_MultipleAllValidCollections(BasicParserTests.java:127)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+CoreTests.ParserTests.BasicParserTests.testParse_AllInvalidArticles -- Time elapsed: 0.007 s <<< ERROR!
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
+	at java.base/java.util.Objects.checkIndex(Objects.java:365)
+	at java.base/java.util.ArrayList.get(ArrayList.java:428)
+	at CoreTests.ParserTests.BasicParserTests.testParse_AllInvalidArticles(BasicParserTests.java:73)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+CoreTests.ParserTests.BasicParserTests.testParse_MultipleMixedCollections -- Time elapsed: 0.018 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+expected: <[]> but was: <[Collection {status= ok
+totalResults= 3
+articles= [Title: NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: New coronavirus strain detected in India | TheHill - The Hill
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: null
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]
+validArticles= [Title: NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: New coronavirus strain detected in India | TheHill - The Hill
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+]
+invalidArticles= [Title: null
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]}, Collection {status= ok
+totalResults= 3
+articles= [Title: NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: New coronavirus strain detected in India | TheHill - The Hill
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: null
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]
+validArticles= [Title: NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: New coronavirus strain detected in India | TheHill - The Hill
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+]
+invalidArticles= [Title: null
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]}, Collection {status= ok
+totalResults= 3
+articles= [Title: NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: New coronavirus strain detected in India | TheHill - The Hill
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: null
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]
+validArticles= [Title: NHL fires referee Tim Peel after hot mic captures him saying he 'wanted to' call penalty - NBC News
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: New coronavirus strain detected in India | TheHill - The Hill
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+]
+invalidArticles= [Title: null
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]}]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at CoreTests.ParserTests.BasicParserTests.testParse_MultipleMixedCollections(BasicParserTests.java:169)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+CoreTests.ParserTests.BasicParserTests.testParse_MixedArticles -- Time elapsed: 0.020 s <<< ERROR!
+java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
+	at java.base/java.util.Objects.checkIndex(Objects.java:365)
+	at java.base/java.util.ArrayList.get(ArrayList.java:428)
+	at CoreTests.ParserTests.BasicParserTests.testParse_MixedArticles(BasicParserTests.java:102)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
+CoreTests.ParserTests.BasicParserTests.testParse_MultipleInvalidCollections -- Time elapsed: 0.023 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+expected: <[]> but was: <[Collection {status= ok
+totalResults= 3
+articles= [Title: null
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: null
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: null
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]
+validArticles= []
+invalidArticles= [Title: null
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: null
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: null
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]}, Collection {status= ok
+totalResults= 3
+articles= [Title: null
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: null
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: null
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]
+validArticles= []
+invalidArticles= [Title: null
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: null
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: null
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]}, Collection {status= ok
+totalResults= 3
+articles= [Title: null
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: null
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: null
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]
+validArticles= []
+invalidArticles= [Title: null
+Description: NHL ices referee Tim Peel after hot mic captures odd, f-bomb comment
+Date Published: Wed Mar 24 12:06:32 PDT 2021
+Source Link: https://www.nbcnews.com/news/us-news/nhl-fires-referee-tim-peel-after-hot-mic-captures-him-n1261954
+, Title: null
+Description: A new coronavirus strain has been detected in India, the ...
+Date Published: Wed Mar 24 11:59:09 PDT 2021
+Source Link: https://thehill.com/homenews/news/544754-new-coronavirus-strain-detected-in-india
+, Title: null
+Description: The Event Horizon Telescope project, which produced the world's first image of a black hole in 2019 in the M87 galaxy, unveiled a new view of its magnetic fields as captured by polarized light.
+Date Published: Wed Mar 24 14:05:34 PDT 2021
+Source Link: https://www.npr.org/2021/03/24/980896706/stunning-new-image-of-black-hole-reveals-surrounding-magnetic-fields
+]}]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at CoreTests.ParserTests.BasicParserTests.testParse_MultipleInvalidCollections(BasicParserTests.java:148)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+
