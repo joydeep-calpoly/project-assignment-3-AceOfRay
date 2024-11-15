@@ -3,6 +3,8 @@ package CustomNewsAPI.Core.Engines;
 import java.io.File;
 import java.util.List;
 
+import CustomNewsAPI.Core.Parsing.APIElements.Format;
+
 /**
  * High Level:
  *      The Engine in this case is what interacts with the user defined inputs in order to parse the the given 
@@ -15,14 +17,12 @@ public interface Engine {
 
     /**
      * High Level: 
-     *      The Start method of engines require Files to read from to obtain sources and their corresponding 
-     * formats. The implementing class will create parsers and build collections from the input sources.
+     *      The Start method of engines require Formats to read from to obtain sources.
+     * The implementing class will create parsers to visit build collections from the input sources.
      * @param file
      */
 
-    public void start(File file);
-
-    public void start(List<File> files);
+    public void start(Format f);
 
     /**
      * High Level:
@@ -30,5 +30,5 @@ public interface Engine {
      * collections to the parsers.
      * @param file
      */
-    public void rev(File file);
+    public void rev(Format f);
 }
