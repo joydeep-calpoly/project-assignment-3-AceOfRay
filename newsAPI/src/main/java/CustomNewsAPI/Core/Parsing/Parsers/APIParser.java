@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import org.json.JSONException;
 
 import CustomNewsAPI.Core.Parsing.APIElements.Collection;
+import CustomNewsAPI.Core.Parsing.APIElements.Format;
 import CustomNewsAPI.Core.Parsing.Mappers.Mapper;
 import CustomNewsAPI.Core.Parsing.Mappers.APIMappers.CollectionMapper;
 import CustomNewsAPI.Core.Parsing.Providers.APIProviders.APIFormatProvider;
@@ -72,6 +73,12 @@ public class APIParser implements Parser {
                 logger.severe("Caught a JSONException while parsing.\n" + jsonString + "\n" + e.getMessage());
             }
         });
+    }
+
+    @Override
+    public void visit(Format f) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'visit'");
     }
 
 }

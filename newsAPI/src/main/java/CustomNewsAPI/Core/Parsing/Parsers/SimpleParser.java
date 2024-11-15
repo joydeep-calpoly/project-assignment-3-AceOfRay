@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import CustomNewsAPI.Core.Parsing.APIElements.Article;
 import CustomNewsAPI.Core.Parsing.APIElements.Collection;
+import CustomNewsAPI.Core.Parsing.APIElements.Format;
 import CustomNewsAPI.Core.Parsing.Mappers.Mapper;
 import CustomNewsAPI.Core.Parsing.Mappers.SimpleMappers.ArticleMapper;
 import CustomNewsAPI.Core.Parsing.Providers.SimpleProviders.SimpleFormatProvider;
@@ -81,6 +82,13 @@ public class SimpleParser implements Parser {
     @Override
     public List<Collection> getCollections() {
         return new ArrayList<>(articleCollections);
+    }
+
+
+    @Override
+    public void visit(Format f) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'visit'");
     }
 
 }

@@ -3,6 +3,7 @@ package CustomNewsAPI.Core.Parsing.Parsers;
 import java.util.List;
 
 import CustomNewsAPI.Core.Parsing.APIElements.Collection;
+import CustomNewsAPI.Core.Parsing.Visitor.Visitor;
 
 /*
  * The parser Interface provides flexibility when designing different types of parsers, 
@@ -15,7 +16,7 @@ import CustomNewsAPI.Core.Parsing.APIElements.Collection;
  *          ; this interface allows for that
  */ 
 
-public interface Parser {
+public interface Parser extends Visitor {
     /**
      * HighLevel:
      *      The parse method should read json strings and parse the articles into whatever type of data
