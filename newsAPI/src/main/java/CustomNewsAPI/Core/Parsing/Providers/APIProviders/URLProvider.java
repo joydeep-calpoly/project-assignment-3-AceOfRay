@@ -8,6 +8,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class URLProvider implements APIFormatProvider {
@@ -31,6 +32,15 @@ public class URLProvider implements APIFormatProvider {
                 .filter(uri -> uri != null)
                 .toList();
         interpretSourceAsAPIFormattedStrings();
+    }
+
+    public URLProvider(URL url) {
+        try {
+            this.urls = Arrays.asList(url.toURI());
+            interpretSourceAsAPIFormattedStrings();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

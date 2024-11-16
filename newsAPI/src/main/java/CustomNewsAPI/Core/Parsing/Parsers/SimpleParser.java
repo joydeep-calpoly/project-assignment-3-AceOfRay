@@ -8,16 +8,18 @@ import java.util.List;
 import java.util.Objects;
 import java.util.ArrayList;
 
+import CustomNewsAPI.Core.Engines.Engine;
 import CustomNewsAPI.Core.Parsing.APIElements.Article;
 import CustomNewsAPI.Core.Parsing.APIElements.Collection;
-import CustomNewsAPI.Core.Parsing.APIElements.Format;
+import CustomNewsAPI.Core.Parsing.APIElements.FormatSpecifier;
 import CustomNewsAPI.Core.Parsing.Mappers.Mapper;
 import CustomNewsAPI.Core.Parsing.Mappers.SimpleMappers.ArticleMapper;
+import CustomNewsAPI.Core.Parsing.Providers.SimpleProviders.SimpleFileProvider;
 import CustomNewsAPI.Core.Parsing.Providers.SimpleProviders.SimpleFormatProvider;
 
 public class SimpleParser implements Parser {
-    List<Collection> articleCollections = new ArrayList<>();
-    Logger logger;
+    private List<Collection> articleCollections = new ArrayList<>();
+    private final Logger logger;
 
     /**
      * This constructor parses and logs
@@ -84,11 +86,22 @@ public class SimpleParser implements Parser {
         return new ArrayList<>(articleCollections);
     }
 
+    /**
+     * Constructor:
+     *      This constructor is to be used by the Engine to create a SimpleParsers internally. It should not be used by client code
+     * Acknowledgements:
+     *      This constructor introduces stateful issues to the parser but it is only for the integration of 
+     * the visitor pattern inside this codebase.
+     */
+
+    public SimpleParser() {
+        this.logger = Engine.getLogger();
+    }
 
     @Override
-    public void visit(Format f) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'visit'");
+    public void visit(FormatSpecifier f) {
+        SimpleFormatProvider sfp = new SimpleFileProvider((String) f.getSource());
+        parse(sfp.provideJsonAsStrings());
     }
 
 }

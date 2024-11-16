@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: CoreTests.ProviderTests.APIFileProviderTests
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s -- in CoreTests.ProviderTests.APIFileProviderTests
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s -- in CoreTests.ProviderTests.APIFileProviderTests

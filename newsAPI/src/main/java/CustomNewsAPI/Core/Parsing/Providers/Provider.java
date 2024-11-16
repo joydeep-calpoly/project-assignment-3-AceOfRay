@@ -1,7 +1,6 @@
 package CustomNewsAPI.Core.Parsing.Providers;
 
 import java.util.List;
-
 /**
  * High Level:
  *      The Provider Interface was created to allow multiple different implementations take json from
@@ -14,7 +13,7 @@ import java.util.List;
  *      User Input Provider - A Provider that requests the user to manually create Json
  */
 
-public interface Provider {
+public interface Provider{
     
     /**
      * HighLevel:

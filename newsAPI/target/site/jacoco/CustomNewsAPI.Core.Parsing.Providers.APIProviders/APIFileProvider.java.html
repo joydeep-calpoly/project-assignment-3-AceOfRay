@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>APIFileProvider.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project2</a> &gt; <a href="index.source.html" class="el_package">CustomNewsAPI.Core.Parsing.Providers.APIProviders</a> &gt; <span class="el_source">APIFileProvider.java</span></div><h1>APIFileProvider.java</h1><pre class="source lang-java linenums">package CustomNewsAPI.Core.Parsing.Providers.APIProviders;
 
 import java.util.List;
+
+import CustomNewsAPI.Core.Parsing.APIElements.FormatSpecifier;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -18,8 +21,8 @@ import java.util.Arrays;
  */
 
 public class APIFileProvider implements APIFormatProvider {
-    private final List&lt;File&gt; files;
-<span class="fc" id="L22">    private List&lt;String&gt; jsonStrings = new ArrayList&lt;&gt;();</span>
+    private List&lt;File&gt; files;
+<span class="fc" id="L25">    private List&lt;String&gt; jsonStrings = new ArrayList&lt;&gt;();</span>
 
     /**
      * Implementation Details:
@@ -31,15 +34,15 @@ public class APIFileProvider implements APIFormatProvider {
 
     @Override
     public void interpretSourceAsAPIFormattedStrings() {
-<span class="fc" id="L34">        files.forEach(file -&gt; {</span>
+<span class="fc" id="L37">        files.forEach(file -&gt; {</span>
             try {
-<span class="fc" id="L36">                jsonStrings.add(Files.readString(Path.of(file.getAbsolutePath())));</span>
-<span class="fc" id="L37">            } catch (IOException e) {</span>
-<span class="fc" id="L38">                System.out.println(&quot;Invalid File: &quot; + file.getName());</span>
-<span class="fc" id="L39">            }</span>
-<span class="fc" id="L40">        });</span>
+<span class="fc" id="L39">                jsonStrings.add(Files.readString(Path.of(file.getAbsolutePath())));</span>
+<span class="fc" id="L40">            } catch (IOException e) {</span>
+<span class="fc" id="L41">                System.out.println(&quot;Invalid File: &quot; + file.getName());</span>
+            }
+<span class="fc" id="L43">        });</span>
 
-<span class="fc" id="L42">    }</span>
+<span class="fc" id="L45">    }</span>
 
     /**
      * Implementation Details:
@@ -49,7 +52,7 @@ public class APIFileProvider implements APIFormatProvider {
 
     @Override
     public List&lt;String&gt; provideJsonAsStrings() {
-<span class="fc" id="L52">        return new ArrayList&lt;&gt;(jsonStrings);</span>
+<span class="fc" id="L55">        return new ArrayList&lt;&gt;(jsonStrings);</span>
     }
 
     /**
@@ -58,20 +61,20 @@ public class APIFileProvider implements APIFormatProvider {
      * @param files
      */
 
-<span class="fc" id="L61">    public APIFileProvider(List&lt;File&gt; files) {</span>
-<span class="fc" id="L62">        this.files = new ArrayList&lt;&gt;(files);</span>
-<span class="fc" id="L63">        interpretSourceAsAPIFormattedStrings();</span>
-<span class="fc" id="L64">    }</span>
+<span class="fc" id="L64">    public APIFileProvider(List&lt;File&gt; files) {</span>
+<span class="fc" id="L65">        this.files = new ArrayList&lt;&gt;(files);</span>
+<span class="fc" id="L66">        interpretSourceAsAPIFormattedStrings();</span>
+<span class="fc" id="L67">    }</span>
 
     /**
      * Constructor from an absolute path, automatically reads file into strings
      * @param files
      */
 
-<span class="fc" id="L71">    public APIFileProvider(String path) {</span>
-<span class="fc" id="L72">        this.files = Arrays.asList(new File(path));</span>
-<span class="fc" id="L73">        interpretSourceAsAPIFormattedStrings();</span>
-<span class="fc" id="L74">    }</span>
+<span class="fc" id="L74">    public APIFileProvider(String path) {</span>
+<span class="fc" id="L75">        this.files = Arrays.asList(new File(path));</span>
+<span class="fc" id="L76">        interpretSourceAsAPIFormattedStrings();</span>
+<span class="fc" id="L77">    }</span>
 
     /**
      * JsonFileProvider factory method to create a new JsonFileProvider when given a list of Paths
@@ -80,8 +83,8 @@ public class APIFileProvider implements APIFormatProvider {
      */
 
     public static APIFileProvider fromPaths(List&lt;String&gt; paths) {
-<span class="fc" id="L83">        List&lt;File&gt; files = paths.stream().map(File::new).toList();</span>
-<span class="fc" id="L84">        return new APIFileProvider(files);</span>
+<span class="fc" id="L86">        List&lt;File&gt; files = paths.stream().map(File::new).toList();</span>
+<span class="fc" id="L87">        return new APIFileProvider(files);</span>
     }
 
     /**
@@ -90,13 +93,13 @@ public class APIFileProvider implements APIFormatProvider {
 
     @Override
     public boolean equals(Object obj) {
-<span class="pc bpc" id="L93" title="1 of 2 branches missed.">        if (!(obj instanceof APIFileProvider)) {</span>
-<span class="nc" id="L94">            return false;</span>
+<span class="pc bpc" id="L96" title="1 of 2 branches missed.">        if (!(obj instanceof APIFileProvider)) {</span>
+<span class="nc" id="L97">            return false;</span>
         }
 
-<span class="fc" id="L97">        APIFileProvider other = (APIFileProvider) obj;</span>
+<span class="fc" id="L100">        APIFileProvider other = (APIFileProvider) obj;</span>
 
-<span class="pc bpc" id="L99" title="1 of 4 branches missed.">        return files.equals(other.files) &amp;&amp; jsonStrings.equals(other.jsonStrings);</span>
+<span class="pc bpc" id="L102" title="1 of 4 branches missed.">        return files.equals(other.files) &amp;&amp; jsonStrings.equals(other.jsonStrings);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

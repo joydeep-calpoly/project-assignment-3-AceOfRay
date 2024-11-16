@@ -13,7 +13,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import CustomNewsAPI.Client.Entry;
+import CustomNewsAPI.Core.Engines.Engine;
 import CustomNewsAPI.Core.Parsing.APIElements.Article;
 import CustomNewsAPI.Core.Parsing.APIElements.Collection;
 import CustomNewsAPI.Core.Parsing.Parsers.Parser;
@@ -42,7 +42,7 @@ public class SimpleParserTests {
                     "Extend Assignment #1 to support multiple sources and to introduce source processor.",
                     "https://canvas.calpoly.edu/courses/55411/assignments/274503", "2021-04-16 09:53:23.709229")));
 
-            Parser parser = new SimpleParser(provider, Entry.getLogger());
+            Parser parser = new SimpleParser(provider, Engine.getLogger());
             assertEquals(expectedCollection, parser.getCollections().get(0));
         } catch (IOException e) {
             e.printStackTrace();
@@ -85,7 +85,7 @@ public class SimpleParserTests {
 
             List<Collection> expectedCollections = Arrays.asList(expectedCollection);
 
-            Parser parser = new SimpleParser(provider, Entry.getLogger());
+            Parser parser = new SimpleParser(provider, Engine.getLogger());
             assertEquals(expectedCollections, parser.getCollections());
         } catch (IOException e) {
             e.printStackTrace();
@@ -116,7 +116,7 @@ public class SimpleParserTests {
 
             List<Collection> expectedCollections = Arrays.asList(expectedCollection);
 
-            Parser parser = new SimpleParser(provider, Entry.getLogger());
+            Parser parser = new SimpleParser(provider, Engine.getLogger());
             assertEquals(expectedCollections, parser.getCollections());
         } catch (IOException e) {
             e.printStackTrace();
@@ -140,7 +140,7 @@ public class SimpleParserTests {
 
             List<Collection> expectedCollections = Arrays.asList(expectedCollection);
 
-            Parser parser = new SimpleParser(provider, Entry.getLogger());
+            Parser parser = new SimpleParser(provider, Engine.getLogger());
             assertEquals(expectedCollections, parser.getCollections());
         } catch (IOException e) {
             e.printStackTrace();
@@ -168,7 +168,7 @@ public class SimpleParserTests {
 
             List<Collection> expectedCollections = Arrays.asList(expectedCollection);
             
-            Parser parser = new SimpleParser(provider, Entry.getLogger());
+            Parser parser = new SimpleParser(provider, Engine.getLogger());
             assertEquals(expectedCollections, parser.getCollections());
         } catch (IOException e) {
             e.printStackTrace();

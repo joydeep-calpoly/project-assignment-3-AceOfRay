@@ -2,19 +2,21 @@ package CustomNewsAPI.Core.Parsing.Parsers;
 
 
 import java.util.List;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import org.json.JSONObject;
 import org.json.JSONException;
 
+import CustomNewsAPI.Core.Engines.Engine;
 import CustomNewsAPI.Core.Parsing.APIElements.Collection;
-import CustomNewsAPI.Core.Parsing.APIElements.Format;
+import CustomNewsAPI.Core.Parsing.APIElements.FormatSpecifier;
 import CustomNewsAPI.Core.Parsing.Mappers.Mapper;
 import CustomNewsAPI.Core.Parsing.Mappers.APIMappers.CollectionMapper;
+import CustomNewsAPI.Core.Parsing.Providers.APIProviders.APIFileProvider;
 import CustomNewsAPI.Core.Parsing.Providers.APIProviders.APIFormatProvider;
-
-
+import CustomNewsAPI.Core.Parsing.Providers.APIProviders.URLProvider;
 
 /**
  * HighLevel:
@@ -75,10 +77,23 @@ public class APIParser implements Parser {
         });
     }
 
+    /**
+     * Constructor:
+     *      This constructor is to be used by the Engines of this API and not for clients. 
+     * Acknowledgements:
+     *      This constructor introduces stateful issues to the parser but it is only for the integration of 
+     * the visitor pattern inside this codebase.
+     */
+    public APIParser() {
+        this.logger = Engine.getLogger();
+    }
+
     @Override
-    public void visit(Format f) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'visit'");
+    public void visit(FormatSpecifier f) {
+        APIFormatProvider ap = f.isFileSource()
+                ? new APIFileProvider((String) f.getSource())
+                : new URLProvider((URL) f.getSource());
+        parse(ap.provideJsonAsStrings());
     }
 
 }

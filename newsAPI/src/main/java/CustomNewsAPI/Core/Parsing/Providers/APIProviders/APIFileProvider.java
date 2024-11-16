@@ -1,6 +1,7 @@
 package CustomNewsAPI.Core.Parsing.Providers.APIProviders;
 
 import java.util.List;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -18,7 +19,7 @@ import java.util.Arrays;
  */
 
 public class APIFileProvider implements APIFormatProvider {
-    private final List<File> files;
+    private List<File> files;
     private List<String> jsonStrings = new ArrayList<>();
 
     /**

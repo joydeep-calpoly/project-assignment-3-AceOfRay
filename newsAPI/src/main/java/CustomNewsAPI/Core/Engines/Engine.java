@@ -1,34 +1,52 @@
 package CustomNewsAPI.Core.Engines;
 
-import java.io.File;
-import java.util.List;
 
-import CustomNewsAPI.Core.Parsing.APIElements.Format;
+import java.io.IOException;
+import java.util.List;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+
+import CustomNewsAPI.Core.Parsing.APIElements.Collection;
+import CustomNewsAPI.Core.Parsing.APIElements.FormatSpecifier;
 
 /**
  * High Level:
- *      The Engine in this case is what interacts with the user defined inputs in order to parse the the given 
- * articles appropriately. User Defined Inputs are stored in [name]_engine_config.json files. These files will 
- * contain article sources as well as their formats. The Engine will read the content of the given file and 
- * parse it. 
+ *      The Engine in this API is what interacts with the user defined inputs in order to parse the the given 
+ * articles appropriately. User Defined Inputs are encapsulated in the FormatSpecifier class which is injected 
+ * into the engine. These FormatSpecifiers will enable the engine to parse the article source defined in the
+ * FormatSpecifier.
  */
 
 public interface Engine {
 
     /**
      * High Level: 
-     *      The Start method of engines require Formats to read from to obtain sources.
-     * The implementing class will create parsers to visit build collections from the input sources.
+     *      The read method of engines require Formats to read from to obtain sources. The implementing class
+     * will create parsers to visit build collections from the input sources.
      * @param file
      */
 
-    public void start(Format f);
+    public void read(FormatSpecifier f);
 
+    public List<Collection> getCollections();
+    
     /**
-     * High Level:
-     *      The Rev method of engines feed new sources and formats to the existing parsers which then add new
-     * collections to the parsers.
-     * @param file
+     * This is a helper function that handles all the verbose code that is involved with creating a logger
      */
-    public void rev(Format f);
+
+    public static Logger getLogger() {
+        Logger l = Logger.getLogger(Collection.class.getName());
+        try {
+            l.addHandler(new FileHandler("logs/error.log", false));
+        } catch (SecurityException | IOException e) {
+            e.printStackTrace();
+        }
+        return l;
+    }
+    
+    default void printCollections() {
+        getCollections().forEach(collection -> {
+            collection.printArticles(collection.getAllArticles());
+        });
+    }
 }

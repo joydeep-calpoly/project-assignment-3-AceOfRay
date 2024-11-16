@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Engine.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project2</a> &gt; <a href="index.source.html" class="el_package">CustomNewsAPI.Core.Engines</a> &gt; <span class="el_source">Engine.java</span></div><h1>Engine.java</h1><pre class="source lang-java linenums">package CustomNewsAPI.Core.Engines;
+
+
+import java.io.IOException;
+import java.util.List;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+
+import CustomNewsAPI.Core.Parsing.APIElements.Collection;
+import CustomNewsAPI.Core.Parsing.APIElements.FormatSpecifier;
+
+/**
+ * High Level:
+ *      The Engine in this API is what interacts with the user defined inputs in order to parse the the given 
+ * articles appropriately. User Defined Inputs are encapsulated in the FormatSpecifier class which is injected 
+ * into the engine. These FormatSpecifiers will enable the engine to parse the article source defined in the
+ * FormatSpecifier.
+ */
+
+public interface Engine {
+
+    /**
+     * High Level: 
+     *      The read method of engines require Formats to read from to obtain sources. The implementing class
+     * will create parsers to visit build collections from the input sources.
+     * @param file
+     */
+
+    public void read(FormatSpecifier f);
+
+    public List&lt;Collection&gt; getCollections();
+    
+    /**
+     * This is a helper function that handles all the verbose code that is involved with creating a logger
+     */
+
+    public static Logger getLogger() {
+<span class="fc" id="L38">        Logger l = Logger.getLogger(Collection.class.getName());</span>
+        try {
+<span class="fc" id="L40">            l.addHandler(new FileHandler(&quot;logs/error.log&quot;, false));</span>
+<span class="pc" id="L41">        } catch (SecurityException | IOException e) {</span>
+<span class="nc" id="L42">            e.printStackTrace();</span>
+        }
+<span class="fc" id="L44">        return l;</span>
+    }
+    
+    default void printCollections() {
+<span class="nc" id="L48">        getCollections().forEach(collection -&gt; {</span>
+<span class="nc" id="L49">            collection.printArticles(collection.getAllArticles());</span>
+<span class="nc" id="L50">        });</span>
+<span class="nc" id="L51">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

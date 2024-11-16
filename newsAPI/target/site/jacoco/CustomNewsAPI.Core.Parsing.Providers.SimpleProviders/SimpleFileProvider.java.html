@@ -47,9 +47,9 @@ public class SimpleFileProvider implements SimpleFormatProvider {
 <span class="fc" id="L47">        files.forEach(file -&gt; {</span>
             try {
 <span class="fc" id="L49">                jsonStrings.add(Files.readString(Path.of(file.getAbsolutePath())));</span>
-<span class="nc" id="L50">            } catch (IOException e) {</span>
+<span class="pc" id="L50">            } catch (IOException e) {</span>
 <span class="nc" id="L51">                System.out.println(&quot;Invalid File: &quot; + file.getName());</span>
-<span class="fc" id="L52">            }</span>
+            }
 <span class="fc" id="L53">        });</span>
 <span class="fc" id="L54">    }</span>
 

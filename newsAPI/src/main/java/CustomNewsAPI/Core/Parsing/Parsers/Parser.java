@@ -32,14 +32,12 @@ public interface Parser extends Visitor {
      *      Each parser must return the parsed json in the form List<Collection>
      * @return
      */
-
     public List<Collection> getCollections();
 
     /**
      * HighLevel:
      *      Each parser must be able to print the valid articles it has obtained from it's provider
      */
-
     default void printValidArticles() {
         getCollections().forEach(collection -> {
             collection.printArticles(collection.getValidArticles());

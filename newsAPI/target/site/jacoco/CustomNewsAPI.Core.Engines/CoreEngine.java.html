@@ -1,30 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CoreEngine.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">project2</a> &gt; <a href="index.source.html" class="el_package">CustomNewsAPI.Core.Engines</a> &gt; <span class="el_source">CoreEngine.java</span></div><h1>CoreEngine.java</h1><pre class="source lang-java linenums">package CustomNewsAPI.Core.Engines;
 
-import java.io.File;
+import java.security.InvalidParameterException;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-<span class="nc" id="L6">public class CoreEngine implements Engine {</span>
+import CustomNewsAPI.Core.Parsing.APIElements.Collection;
+import CustomNewsAPI.Core.Parsing.APIElements.FormatSpecifier;
+import CustomNewsAPI.Core.Parsing.Parsers.APIParser;
+import CustomNewsAPI.Core.Parsing.Parsers.Parser;
+import CustomNewsAPI.Core.Parsing.Parsers.SimpleParser;
 
-    @Override
-    public void start(File f) {
-        // read contents of file
-        // maybe create a format object out of the contents
-        // have the parser visit the format class and parse the article 
-        // TODO Auto-generated method stub
-<span class="nc" id="L14">        throw new UnsupportedOperationException(&quot;Unimplemented method 'start'&quot;);</span>
-    }
 
-    @Override
-    public void start(List&lt;File&gt; files) {
-        // TODO Auto-generated method stub
-<span class="nc" id="L20">        throw new UnsupportedOperationException(&quot;Unimplemented method 'start'&quot;);</span>
-    }
+<span class="nc" id="L17">public class CoreEngine implements Engine {</span>
+    private Parser apiParser;
+    private Parser simpleParser;
 
     @Override
-    public void rev(File f) {
-        // TODO Auto-generated method stub
-<span class="nc" id="L26">        throw new UnsupportedOperationException(&quot;Unimplemented method 'rev'&quot;);</span>
+    public void read(FormatSpecifier f) {
+<span class="nc bnc" id="L23" title="All 3 branches missed.">        switch (f.getType()) {</span>
+            case SIMPLE:
+<span class="nc" id="L25">                simpleParser = new SimpleParser();</span>
+<span class="nc" id="L26">                simpleParser.visit(f);</span>
+<span class="nc" id="L27">                break;</span>
+            case API:
+<span class="nc" id="L29">                APIParser apiParser = new APIParser();</span>
+<span class="nc" id="L30">                apiParser.visit(f);</span>
+<span class="nc" id="L31">                break;</span>
+            default:
+<span class="nc" id="L33">                throw new InvalidParameterException(&quot;Invalid FormatType: &quot; + f.getType());</span>
+        }
+<span class="nc" id="L35">    }</span>
+
+    @Override
+    public List&lt;Collection&gt; getCollections() {
+<span class="nc" id="L39">        return Stream.of(Optional.ofNullable(apiParser), Optional.ofNullable(simpleParser))</span>
+<span class="nc" id="L40">                .filter(Optional::isPresent)</span>
+<span class="nc" id="L41">                .flatMap(optional -&gt; optional.map(parser -&gt; parser.getCollections()).orElseGet(Collections::emptyList)</span>
+<span class="nc" id="L42">                        .stream())</span>
+<span class="nc" id="L43">                .collect(Collectors.toList());</span>
     }
-    
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

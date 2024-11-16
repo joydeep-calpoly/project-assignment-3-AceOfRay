@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.List;
 import java.util.Arrays;
 
-import CustomNewsAPI.Client.Entry;
+import CustomNewsAPI.Core.Engines.Engine;
 import CustomNewsAPI.Core.Parsing.APIElements.Article;
 import CustomNewsAPI.Core.Parsing.APIElements.Collection;
 import CustomNewsAPI.Core.Parsing.Parsers.APIParser;
@@ -40,7 +40,7 @@ class APIParserTests {
         // create parser
         String filePath = "testInputs/smallGreenSet.json";
         APIFormatProvider provider = new APIFileProvider(filePath);
-        Parser parser = new APIParser(provider, Entry.getLogger());
+        Parser parser = new APIParser(provider, Engine.getLogger());
 
         assertEquals(expectedCollection, parser.getCollections().get(0));
         assertEquals(expectedArticles, parser.getCollections().get(0).getAllArticles());
@@ -68,7 +68,7 @@ class APIParserTests {
         // create parser
         String filePath = "testInputs/smallRedSet.json";
         APIFormatProvider provider = new APIFileProvider(filePath);
-        Parser parser = new APIParser(provider, Entry.getLogger());
+        Parser parser = new APIParser(provider, Engine.getLogger());
 
         assertEquals(expectedCollection, parser.getCollections().get(0));
         assertEquals(expectedArticles, parser.getCollections().get(0).getInvalidArticles());
@@ -94,7 +94,7 @@ class APIParserTests {
         // create parser
         String filePath = "testInputs/smallMixedSet.json";
         APIFormatProvider provider = new APIFileProvider(filePath);
-        Parser parser = new APIParser(provider, Entry.getLogger());
+        Parser parser = new APIParser(provider, Engine.getLogger());
 
         List<Article> expectedInvalidArticles = Arrays.asList(expectedArticles.get(2));
         List<Article> expectedValidArticles = Arrays.asList(expectedArticles.get(0), expectedArticles.get(1));
@@ -119,7 +119,7 @@ class APIParserTests {
         List<String> filePaths = Arrays.asList("testInputs/smallGreenSet.json", "testInputs/smallGreenSet.json",
                 "testInputs/smallGreenSet.json");
         APIFormatProvider provider = APIFileProvider.fromPaths(filePaths);
-        Parser parser = new APIParser(provider, Entry.getLogger());
+        Parser parser = new APIParser(provider, Engine.getLogger());
 
         List<Collection> expectedCollections = ParserTestHelpers.generateNCollections(3,
                 () -> ParserTestHelpers.getGreenSetArticles());
@@ -140,7 +140,7 @@ class APIParserTests {
         List<String> filePaths = Arrays.asList("testInputs/smallRedSet.json", "testInputs/smallRedSet.json",
                 "testInputs/smallRedSet.json");
         APIFormatProvider provider = APIFileProvider.fromPaths(filePaths);
-        Parser parser = new APIParser(provider, Entry.getLogger());
+        Parser parser = new APIParser(provider, Engine.getLogger());
 
         List<Collection> expectedCollections = ParserTestHelpers.generateNCollections(3,
                 () -> ParserTestHelpers.getRedSetArticles());
@@ -161,7 +161,7 @@ class APIParserTests {
         List<String> filePaths = Arrays.asList("testInputs/smallMixedSet.json", "testInputs/smallMixedSet.json",
                 "testInputs/smallMixedSet.json");
         APIFormatProvider provider = APIFileProvider.fromPaths(filePaths);
-        Parser parser = new APIParser(provider, Entry.getLogger());
+        Parser parser = new APIParser(provider, Engine.getLogger());
 
         List<Collection> expectedCollections = ParserTestHelpers.generateNCollections(3,
                 () -> ParserTestHelpers.getMixedSetArticles());
@@ -191,7 +191,7 @@ class APIParserTests {
                 "testInputs/smallMixedSet.json",
                 "testInputs/smallRedSet.json");
         APIFormatProvider provider = APIFileProvider.fromPaths(filePaths);
-        Parser parser = new APIParser(provider, Entry.getLogger());
+        Parser parser = new APIParser(provider, Engine.getLogger());
 
         List<Collection> expectedCollections = Arrays.asList(
                 ParserTestHelpers.generateCollection(() -> ParserTestHelpers.getGreenSetArticles()),

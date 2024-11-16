@@ -8,30 +8,40 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class URLProvider implements APIFormatProvider {
     private List&lt;URI&gt; urls;
-<span class="nc" id="L15">    private List&lt;String&gt; jsonStrings = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L16">    private List&lt;String&gt; jsonStrings = new ArrayList&lt;&gt;();</span>
 
     /**
      * Constructor that takes in a list of URLS to read from
      * @param urls
      */
-<span class="nc" id="L21">    public URLProvider(List&lt;URL&gt; urls) {</span>
-<span class="nc" id="L22">        this.urls = urls.stream()</span>
-<span class="nc" id="L23">                .map(url -&gt; {</span>
+<span class="nc" id="L22">    public URLProvider(List&lt;URL&gt; urls) {</span>
+<span class="nc" id="L23">        this.urls = urls.stream()</span>
+<span class="nc" id="L24">                .map(url -&gt; {</span>
                     try {
-<span class="nc" id="L25">                        return url.toURI();</span>
-<span class="nc" id="L26">                    } catch (URISyntaxException e) {</span>
-<span class="nc" id="L27">                        e.printStackTrace();</span>
-<span class="nc" id="L28">                        return null;</span>
+<span class="nc" id="L26">                        return url.toURI();</span>
+<span class="nc" id="L27">                    } catch (URISyntaxException e) {</span>
+<span class="nc" id="L28">                        e.printStackTrace();</span>
+<span class="nc" id="L29">                        return null;</span>
                     }
                 })
-<span class="nc bnc" id="L31" title="All 2 branches missed.">                .filter(uri -&gt; uri != null)</span>
-<span class="nc" id="L32">                .toList();</span>
-<span class="nc" id="L33">        interpretSourceAsAPIFormattedStrings();</span>
-<span class="nc" id="L34">    }</span>
+<span class="nc bnc" id="L32" title="All 2 branches missed.">                .filter(uri -&gt; uri != null)</span>
+<span class="nc" id="L33">                .toList();</span>
+<span class="nc" id="L34">        interpretSourceAsAPIFormattedStrings();</span>
+<span class="nc" id="L35">    }</span>
+
+<span class="nc" id="L37">    public URLProvider(URL url) {</span>
+        try {
+<span class="nc" id="L39">            this.urls = Arrays.asList(url.toURI());</span>
+<span class="nc" id="L40">            interpretSourceAsAPIFormattedStrings();</span>
+<span class="nc" id="L41">        } catch (URISyntaxException e) {</span>
+<span class="nc" id="L42">            e.printStackTrace();</span>
+        }
+<span class="nc" id="L44">    }</span>
 
     /**
      * Implementation Details:
@@ -39,7 +49,7 @@ public class URLProvider implements APIFormatProvider {
      */
     @Override
     public List&lt;String&gt; provideJsonAsStrings() {
-<span class="nc" id="L42">        return new ArrayList&lt;&gt;(jsonStrings);</span>
+<span class="nc" id="L52">        return new ArrayList&lt;&gt;(jsonStrings);</span>
     }
 
     /**
@@ -49,11 +59,11 @@ public class URLProvider implements APIFormatProvider {
 
     @Override
     public void interpretSourceAsAPIFormattedStrings() {
-<span class="nc" id="L52">        HttpClient client = HttpClient.newHttpClient();</span>
-<span class="nc" id="L53">        urls.forEach(url -&gt; {</span>
-<span class="nc" id="L54">            jsonStrings.add(fetchJson(client, url));</span>
-<span class="nc" id="L55">        });</span>
-<span class="nc" id="L56">    }</span>
+<span class="nc" id="L62">        HttpClient client = HttpClient.newHttpClient();</span>
+<span class="nc" id="L63">        urls.forEach(url -&gt; {</span>
+<span class="nc" id="L64">            jsonStrings.add(fetchJson(client, url));</span>
+<span class="nc" id="L65">        });</span>
+<span class="nc" id="L66">    }</span>
 
     /**
      * Implementation Details:
@@ -65,15 +75,15 @@ public class URLProvider implements APIFormatProvider {
      */
     private String fetchJson(HttpClient client, URI url) {
         try {
-<span class="nc" id="L68">            HttpRequest request = HttpRequest.newBuilder()</span>
-<span class="nc" id="L69">                    .uri(url)</span>
-<span class="nc" id="L70">                    .GET()</span>
-<span class="nc" id="L71">                    .build();</span>
-<span class="nc" id="L72">            HttpResponse&lt;String&gt; response = client.send(request, HttpResponse.BodyHandlers.ofString());</span>
-<span class="nc" id="L73">            return response.body();</span>
-<span class="nc" id="L74">        } catch (IOException | InterruptedException e) {</span>
-<span class="nc" id="L75">            e.printStackTrace();</span>
-<span class="nc" id="L76">            return null;</span>
+<span class="nc" id="L78">            HttpRequest request = HttpRequest.newBuilder()</span>
+<span class="nc" id="L79">                    .uri(url)</span>
+<span class="nc" id="L80">                    .GET()</span>
+<span class="nc" id="L81">                    .build();</span>
+<span class="nc" id="L82">            HttpResponse&lt;String&gt; response = client.send(request, HttpResponse.BodyHandlers.ofString());</span>
+<span class="nc" id="L83">            return response.body();</span>
+<span class="nc" id="L84">        } catch (IOException | InterruptedException e) {</span>
+<span class="nc" id="L85">            e.printStackTrace();</span>
+<span class="nc" id="L86">            return null;</span>
         }
     }
 

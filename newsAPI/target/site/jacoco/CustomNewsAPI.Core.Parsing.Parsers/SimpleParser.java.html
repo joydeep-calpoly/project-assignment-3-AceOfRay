@@ -8,15 +8,18 @@ import java.util.List;
 import java.util.Objects;
 import java.util.ArrayList;
 
+import CustomNewsAPI.Core.Engines.Engine;
 import CustomNewsAPI.Core.Parsing.APIElements.Article;
 import CustomNewsAPI.Core.Parsing.APIElements.Collection;
+import CustomNewsAPI.Core.Parsing.APIElements.FormatSpecifier;
 import CustomNewsAPI.Core.Parsing.Mappers.Mapper;
 import CustomNewsAPI.Core.Parsing.Mappers.SimpleMappers.ArticleMapper;
+import CustomNewsAPI.Core.Parsing.Providers.SimpleProviders.SimpleFileProvider;
 import CustomNewsAPI.Core.Parsing.Providers.SimpleProviders.SimpleFormatProvider;
 
 public class SimpleParser implements Parser {
-<span class="fc" id="L18">    List&lt;Collection&gt; articleCollections = new ArrayList&lt;&gt;();</span>
-    Logger logger;
+<span class="pc" id="L21">    private List&lt;Collection&gt; articleCollections = new ArrayList&lt;&gt;();</span>
+    private final Logger logger;
 
     /**
      * This constructor parses and logs
@@ -26,10 +29,10 @@ public class SimpleParser implements Parser {
      * @param logger
      */
 
-<span class="fc" id="L29">    public SimpleParser(SimpleFormatProvider provider, Logger logger) {</span>
-<span class="fc" id="L30">        this.logger = logger;</span>
-<span class="fc" id="L31">        parse(provider.provideJsonAsStrings());</span>
-<span class="fc" id="L32">    }</span>
+<span class="fc" id="L32">    public SimpleParser(SimpleFormatProvider provider, Logger logger) {</span>
+<span class="fc" id="L33">        this.logger = logger;</span>
+<span class="fc" id="L34">        parse(provider.provideJsonAsStrings());</span>
+<span class="fc" id="L35">    }</span>
 
 
     /**
@@ -46,16 +49,16 @@ public class SimpleParser implements Parser {
      */
     @Override
     public void parse(List&lt;String&gt; jsonStrings) {
-<span class="fc" id="L49">        Mapper&lt;Article&gt; mapper = new ArticleMapper();</span>
+<span class="fc" id="L52">        Mapper&lt;Article&gt; mapper = new ArticleMapper();</span>
 
-<span class="fc" id="L51">        List&lt;Article&gt; incomingSimpleArticles = jsonStrings.stream()</span>
-<span class="fc" id="L52">                .map(jsonString -&gt; parseHelper(mapper, jsonString))</span>
-<span class="fc" id="L53">                .filter(Objects::nonNull)</span>
-<span class="fc" id="L54">                .toList();</span>
+<span class="fc" id="L54">        List&lt;Article&gt; incomingSimpleArticles = jsonStrings.stream()</span>
+<span class="fc" id="L55">                .map(jsonString -&gt; parseHelper(mapper, jsonString))</span>
+<span class="fc" id="L56">                .filter(Objects::nonNull)</span>
+<span class="fc" id="L57">                .toList();</span>
 
-<span class="fc" id="L56">        articleCollections.add(</span>
-<span class="fc" id="L57">                new Collection(&quot;ok&quot;, incomingSimpleArticles.size(), incomingSimpleArticles));</span>
-<span class="fc" id="L58">    }</span>
+<span class="fc" id="L59">        articleCollections.add(</span>
+<span class="fc" id="L60">                new Collection(&quot;ok&quot;, incomingSimpleArticles.size(), incomingSimpleArticles));</span>
+<span class="fc" id="L61">    }</span>
 
     /**
      * High Level:
@@ -67,10 +70,10 @@ public class SimpleParser implements Parser {
      */
     private Article parseHelper(Mapper&lt;Article&gt; mapper, String jsonString) {
         try {
-<span class="fc" id="L70">            return mapper.map(new JSONObject(jsonString));</span>
-<span class="fc" id="L71">        } catch (JSONException e) {</span>
-<span class="fc" id="L72">            logger.severe(&quot;Caught a JSONException while parsing.\n&quot; + jsonString + &quot;\n&quot; + e.getMessage());</span>
-<span class="fc" id="L73">            return null;</span>
+<span class="fc" id="L73">            return mapper.map(new JSONObject(jsonString));</span>
+<span class="fc" id="L74">        } catch (JSONException e) {</span>
+<span class="fc" id="L75">            logger.severe(&quot;Caught a JSONException while parsing.\n&quot; + jsonString + &quot;\n&quot; + e.getMessage());</span>
+<span class="fc" id="L76">            return null;</span>
         }
     }
 
@@ -80,8 +83,26 @@ public class SimpleParser implements Parser {
      */
     @Override
     public List&lt;Collection&gt; getCollections() {
-<span class="fc" id="L83">        return new ArrayList&lt;&gt;(articleCollections);</span>
+<span class="fc" id="L86">        return new ArrayList&lt;&gt;(articleCollections);</span>
     }
+
+    /**
+     * Constructor:
+     *      This constructor is to be used by the Engine to create a SimpleParsers internally. It should not be used by client code
+     * Acknowledgements:
+     *      This constructor introduces stateful issues to the parser but it is only for the integration of 
+     * the visitor pattern inside this codebase.
+     */
+
+<span class="nc" id="L97">    public SimpleParser() {</span>
+<span class="nc" id="L98">        this.logger = Engine.getLogger();</span>
+<span class="nc" id="L99">    }</span>
+
+    @Override
+    public void visit(FormatSpecifier f) {
+<span class="nc" id="L103">        SimpleFormatProvider sfp = new SimpleFileProvider((String) f.getSource());</span>
+<span class="nc" id="L104">        parse(sfp.provideJsonAsStrings());</span>
+<span class="nc" id="L105">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
