@@ -1,21 +1,21 @@
-C:\Users\Ray Valenzuela\Cal Poly\2024-2025\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Client\Entry.java
-C:\Users\Ray Valenzuela\Cal Poly\2024-2025\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Engines\CoreEngine.java
-C:\Users\Ray Valenzuela\Cal Poly\2024-2025\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Engines\Engine.java
-C:\Users\Ray Valenzuela\Cal Poly\2024-2025\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\APIElements\Article.java
-C:\Users\Ray Valenzuela\Cal Poly\2024-2025\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\APIElements\ArticleSource.java
-C:\Users\Ray Valenzuela\Cal Poly\2024-2025\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\APIElements\Collection.java
-C:\Users\Ray Valenzuela\Cal Poly\2024-2025\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\APIElements\FormatSpecifier.java
-C:\Users\Ray Valenzuela\Cal Poly\2024-2025\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Mappers\APIMappers\ArticleMapper.java
-C:\Users\Ray Valenzuela\Cal Poly\2024-2025\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Mappers\APIMappers\CollectionMapper.java
-C:\Users\Ray Valenzuela\Cal Poly\2024-2025\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Mappers\Mapper.java
-C:\Users\Ray Valenzuela\Cal Poly\2024-2025\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Mappers\SimpleMappers\ArticleMapper.java
-C:\Users\Ray Valenzuela\Cal Poly\2024-2025\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Parsers\APIParser.java
-C:\Users\Ray Valenzuela\Cal Poly\2024-2025\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Parsers\Parser.java
-C:\Users\Ray Valenzuela\Cal Poly\2024-2025\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Parsers\SimpleParser.java
-C:\Users\Ray Valenzuela\Cal Poly\2024-2025\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Providers\APIProviders\APIFileProvider.java
-C:\Users\Ray Valenzuela\Cal Poly\2024-2025\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Providers\APIProviders\APIFormatProvider.java
-C:\Users\Ray Valenzuela\Cal Poly\2024-2025\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Providers\APIProviders\URLProvider.java
-C:\Users\Ray Valenzuela\Cal Poly\2024-2025\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Providers\Provider.java
-C:\Users\Ray Valenzuela\Cal Poly\2024-2025\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Providers\SimpleProviders\SimpleFileProvider.java
-C:\Users\Ray Valenzuela\Cal Poly\2024-2025\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Providers\SimpleProviders\SimpleFormatProvider.java
-C:\Users\Ray Valenzuela\Cal Poly\2024-2025\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Visitor\Visitor.java
+C:\Users\rayra\CalPoly\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Client\Entry.java
+C:\Users\rayra\CalPoly\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Engines\CoreEngine.java
+C:\Users\rayra\CalPoly\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Engines\Engine.java
+C:\Users\rayra\CalPoly\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\APIElements\Article.java
+C:\Users\rayra\CalPoly\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\APIElements\ArticleSource.java
+C:\Users\rayra\CalPoly\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\APIElements\Collection.java
+C:\Users\rayra\CalPoly\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\APIElements\FormatSpecifier.java
+C:\Users\rayra\CalPoly\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Mappers\APIMappers\ArticleMapper.java
+C:\Users\rayra\CalPoly\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Mappers\APIMappers\CollectionMapper.java
+C:\Users\rayra\CalPoly\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Mappers\Mapper.java
+C:\Users\rayra\CalPoly\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Mappers\SimpleMappers\ArticleMapper.java
+C:\Users\rayra\CalPoly\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Parsers\APIParser.java
+C:\Users\rayra\CalPoly\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Parsers\Parser.java
+C:\Users\rayra\CalPoly\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Parsers\SimpleParser.java
+C:\Users\rayra\CalPoly\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Providers\APIProviders\APIFileProvider.java
+C:\Users\rayra\CalPoly\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Providers\APIProviders\APIFormatProvider.java
+C:\Users\rayra\CalPoly\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Providers\APIProviders\URLProvider.java
+C:\Users\rayra\CalPoly\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Providers\Provider.java
+C:\Users\rayra\CalPoly\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Providers\SimpleProviders\SimpleFileProvider.java
+C:\Users\rayra\CalPoly\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Providers\SimpleProviders\SimpleFormatProvider.java
+C:\Users\rayra\CalPoly\CSC305\project-assignment-3-AceOfRay\newsAPI\src\main\java\CustomNewsAPI\Core\Parsing\Visitor\Visitor.java

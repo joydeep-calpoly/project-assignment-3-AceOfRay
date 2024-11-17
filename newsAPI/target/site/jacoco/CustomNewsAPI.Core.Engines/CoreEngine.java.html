@@ -14,34 +14,70 @@ import CustomNewsAPI.Core.Parsing.Parsers.Parser;
 import CustomNewsAPI.Core.Parsing.Parsers.SimpleParser;
 
 
-<span class="nc" id="L17">public class CoreEngine implements Engine {</span>
+<span class="fc" id="L17">public class CoreEngine implements Engine {</span>
     private Parser apiParser;
     private Parser simpleParser;
 
+    /**
+     * High Level:
+     *      The client is to use the read method to evaluate a FormatSpecifier and dispatch the correct
+     * parser. The read method builds a collection as specified by the FormatSpecifier and adds it to the
+     * corresponding parser.
+     * Implementation Details:
+     *      The FormatSpecifier's getType method is used to decide which parser is to visit the source. The
+     * corresponding parser then visits the formatSpecifier to parse the article source. 
+     * @param f
+     */
     @Override
     public void read(FormatSpecifier f) {
-<span class="nc bnc" id="L23" title="All 3 branches missed.">        switch (f.getType()) {</span>
+<span class="pc bpc" id="L33" title="1 of 3 branches missed.">        switch (f.getType()) {</span>
             case SIMPLE:
-<span class="nc" id="L25">                simpleParser = new SimpleParser();</span>
-<span class="nc" id="L26">                simpleParser.visit(f);</span>
-<span class="nc" id="L27">                break;</span>
+<span class="pc bpc" id="L35" title="1 of 2 branches missed.">                if (simpleParser == null) {</span>
+<span class="nc" id="L36">                    simpleParser = new SimpleParser();</span>
+                }
+<span class="fc" id="L38">                simpleParser.visit(f);</span>
+<span class="fc" id="L39">                break;</span>
             case API:
-<span class="nc" id="L29">                APIParser apiParser = new APIParser();</span>
-<span class="nc" id="L30">                apiParser.visit(f);</span>
-<span class="nc" id="L31">                break;</span>
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">                if (apiParser == null) {</span>
+<span class="nc" id="L42">                    apiParser = new APIParser();</span>
+                }
+<span class="fc" id="L44">                apiParser.visit(f);</span>
+<span class="fc" id="L45">                break;</span>
             default:
-<span class="nc" id="L33">                throw new InvalidParameterException(&quot;Invalid FormatType: &quot; + f.getType());</span>
+<span class="nc" id="L47">                throw new InvalidParameterException(&quot;Invalid FormatType: &quot; + f.getType());</span>
         }
-<span class="nc" id="L35">    }</span>
+<span class="fc" id="L49">    }</span>
 
+    /**
+     * Implementation Details:
+     *      The getCollections method provides a means for viewing the parsed articles. Here a stream is created from both
+     * parsers where the list of Collections that exists in both parsers is merged. This gets returned.
+     */
     @Override
     public List&lt;Collection&gt; getCollections() {
-<span class="nc" id="L39">        return Stream.of(Optional.ofNullable(apiParser), Optional.ofNullable(simpleParser))</span>
-<span class="nc" id="L40">                .filter(Optional::isPresent)</span>
-<span class="nc" id="L41">                .flatMap(optional -&gt; optional.map(parser -&gt; parser.getCollections()).orElseGet(Collections::emptyList)</span>
-<span class="nc" id="L42">                        .stream())</span>
-<span class="nc" id="L43">                .collect(Collectors.toList());</span>
+<span class="nc" id="L58">        return Stream.of(Optional.ofNullable(apiParser), Optional.ofNullable(simpleParser))</span>
+<span class="nc" id="L59">            .filter(Optional::isPresent)</span>
+<span class="nc" id="L60">            .flatMap(optional -&gt; optional.map(parser -&gt; parser.getCollections()).orElseGet(Collections::emptyList)</span>
+<span class="nc" id="L61">            .stream())</span>
+<span class="nc" id="L62">            .collect(Collectors.toList());</span>
     }
 
+    /**
+     * High Level:
+     *      Creates dependency injection for the Core Engine. Helpful for testing
+     * @param parser
+     */
+    public void setAPIParser(APIParser parser) {
+<span class="fc" id="L71">        this.apiParser = parser;</span>
+<span class="fc" id="L72">    }</span>
+    
+    /**
+     * High Level:
+     *      Creates dependency injection for the Core Engine. Helpful for testing
+     * @param parser
+     */
+    public void setSimpleParser(SimpleParser parser) {
+<span class="fc" id="L80">        this.simpleParser = parser;</span>
+<span class="fc" id="L81">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

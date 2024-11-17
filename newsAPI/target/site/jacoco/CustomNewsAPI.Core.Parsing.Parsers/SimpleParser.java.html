@@ -93,16 +93,20 @@ public class SimpleParser implements Parser {
      *      This constructor introduces stateful issues to the parser but it is only for the integration of 
      * the visitor pattern inside this codebase.
      */
+<span class="nc" id="L96">    public SimpleParser() {</span>
+<span class="nc" id="L97">        this.logger = Engine.getLogger();</span>
+<span class="nc" id="L98">    }</span>
 
-<span class="nc" id="L97">    public SimpleParser() {</span>
-<span class="nc" id="L98">        this.logger = Engine.getLogger();</span>
-<span class="nc" id="L99">    }</span>
-
+    /**
+     * Implementation Details:
+     *      A provider is created and the parser uses it to parse the given json.
+     * @param f
+     */
     @Override
     public void visit(FormatSpecifier f) {
-<span class="nc" id="L103">        SimpleFormatProvider sfp = new SimpleFileProvider((String) f.getSource());</span>
-<span class="nc" id="L104">        parse(sfp.provideJsonAsStrings());</span>
-<span class="nc" id="L105">    }</span>
+<span class="nc" id="L107">        SimpleFormatProvider sfp = new SimpleFileProvider((String) f.getSource());</span>
+<span class="nc" id="L108">        parse(sfp.provideJsonAsStrings());</span>
+<span class="nc" id="L109">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

@@ -31,23 +31,28 @@ public interface Engine {
     public List&lt;Collection&gt; getCollections();
     
     /**
-     * This is a helper function that handles all the verbose code that is involved with creating a logger
+     * Implementation Details:
+     *      This is a helper function that handles all the verbose code that is involved with creating a logger
      */
 
     public static Logger getLogger() {
-<span class="fc" id="L38">        Logger l = Logger.getLogger(Collection.class.getName());</span>
+<span class="fc" id="L39">        Logger l = Logger.getLogger(Collection.class.getName());</span>
         try {
-<span class="fc" id="L40">            l.addHandler(new FileHandler(&quot;logs/error.log&quot;, false));</span>
-<span class="pc" id="L41">        } catch (SecurityException | IOException e) {</span>
-<span class="nc" id="L42">            e.printStackTrace();</span>
-        }
-<span class="fc" id="L44">        return l;</span>
+<span class="fc" id="L41">            l.addHandler(new FileHandler(&quot;logs/error.log&quot;, false));</span>
+<span class="nc" id="L42">        } catch (SecurityException | IOException e) {</span>
+<span class="nc" id="L43">            e.printStackTrace();</span>
+<span class="fc" id="L44">        }</span>
+<span class="fc" id="L45">        return l;</span>
     }
     
+    /**
+     * High Level:
+     *      Prints every article in every parser in the engine
+     */
     default void printCollections() {
-<span class="nc" id="L48">        getCollections().forEach(collection -&gt; {</span>
-<span class="nc" id="L49">            collection.printArticles(collection.getAllArticles());</span>
-<span class="nc" id="L50">        });</span>
-<span class="nc" id="L51">    }</span>
+<span class="nc" id="L53">        getCollections().forEach(collection -&gt; {</span>
+<span class="nc" id="L54">            collection.printArticles(collection.getAllArticles());</span>
+<span class="nc" id="L55">        });</span>
+<span class="nc" id="L56">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

@@ -1,7 +1,6 @@
 package CoreTests.EngineTests;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import CustomNewsAPI.Core.Engines.CoreEngine;
@@ -20,7 +19,14 @@ public class CoreEngineTests {
      */
     @Test
     void coreEngineTest_CreatesURLProvider_APIParser() {
+        CoreEngine engine = new CoreEngine();
+        FormatSpecifier format = new FormatSpecifier("https://someexamplesite.com/news/api", FormatSpecifier.FormatType.API);
 
+        engine.setAPIParser(mockApiParser);
+        engine.read(format); // Call the read method
+
+        // Verify that simpleParser.visit was called with the format
+        Mockito.verify(mockApiParser).visit(format);
     }
 
     /**

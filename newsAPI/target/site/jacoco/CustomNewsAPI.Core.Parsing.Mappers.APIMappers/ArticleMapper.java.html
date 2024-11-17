@@ -38,13 +38,13 @@ import CustomNewsAPI.Core.Parsing.Mappers.Mapper;
 <span class="nc" id="L38">        } catch (JSONException e) {</span>
             // Handle missing fields gracefully
 <span class="nc" id="L40">            return new Article(</span>
-<span class="nc" id="L41">                    null, // Source</span>
+                    null, // Source
 <span class="nc" id="L42">                    json.optString(&quot;author&quot;, null),</span>
 <span class="nc" id="L43">                    json.optString(&quot;title&quot;, null),</span>
 <span class="nc" id="L44">                    json.optString(&quot;description&quot;, null),</span>
 <span class="nc" id="L45">                    json.optString(&quot;url&quot;, null),</span>
 <span class="nc" id="L46">                    json.optString(&quot;urlToImage&quot;, null),</span>
-<span class="nc" id="L47">                    null, // PublishedAt</span>
+                    null, // PublishedAt
 <span class="nc" id="L48">                    json.optString(&quot;content&quot;, null));</span>
         }
 

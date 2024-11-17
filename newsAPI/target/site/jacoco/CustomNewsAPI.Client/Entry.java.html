@@ -8,16 +8,17 @@ import CustomNewsAPI.Core.Parsing.APIElements.FormatSpecifier.FormatType;
 <span class="nc" id="L8">public class Entry {</span>
 
     /**
-     * This is the entry point of the program, it creates the API Core Engine and uses it to parse articles
+     * This is the entry point of the program, it creates the API's Core Engine and uses it to parse articles
      * @param args
      */
     public static void main(String[] args) {
 
-<span class="nc" id="L16">        Engine e = new CoreEngine();</span>
-<span class="nc" id="L17">        FormatSpecifier f = new FormatSpecifier(&quot;inputs/jsonInputs/example.json&quot;, FormatType.API);</span>
-<span class="nc" id="L18">        e.read(f);</span>
-<span class="nc" id="L19">        e.printCollections();</span>
+<span class="nc" id="L16">        FormatSpecifier f = new FormatSpecifier(&quot;inputs/jsonInputs/example.json&quot;, FormatType.API);</span>
+        //FormatSpecifier f = new FormatSpecifier(&quot;inputs/base/simple.json&quot;, FormatType.SIMPLE);
+<span class="nc" id="L18">        Engine e = new CoreEngine();</span>
+<span class="nc" id="L19">        e.read(f);</span>
+<span class="nc" id="L20">        e.printCollections();</span>
 
-<span class="nc" id="L21">    }</span>
+<span class="nc" id="L22">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

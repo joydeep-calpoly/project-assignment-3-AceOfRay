@@ -17,9 +17,6 @@ import CustomNewsAPI.Core.Parsing.Mappers.APIMappers.CollectionMapper;
 import CustomNewsAPI.Core.Parsing.Providers.APIProviders.APIFileProvider;
 import CustomNewsAPI.Core.Parsing.Providers.APIProviders.APIFormatProvider;
 import CustomNewsAPI.Core.Parsing.Providers.APIProviders.URLProvider;
-import CustomNewsAPI.Core.Parsing.Visitor.Visitor;
-
-
 
 /**
  * HighLevel:
@@ -35,20 +32,20 @@ import CustomNewsAPI.Core.Parsing.Visitor.Visitor;
  */
 
 public class APIParser implements Parser {
-<span class="pc" id="L38">    private final List&lt;Collection&gt; articleCollections = new ArrayList&lt;&gt;();</span>
+<span class="pc" id="L35">    private final List&lt;Collection&gt; articleCollections = new ArrayList&lt;&gt;();</span>
     private final Logger logger;
 
     /**
-     * This constructor parses and logs
-     * Ideal for client use
+     * Constructor:
+     *      This constructor parses and logs. Ideal for client use
      * @param provider
      * @param logger
      */
 
-<span class="fc" id="L48">    public APIParser(APIFormatProvider provider, Logger logger) {</span>
-<span class="fc" id="L49">        this.logger = logger;</span>
-<span class="fc" id="L50">        parse(provider.provideJsonAsStrings());</span>
-<span class="fc" id="L51">    }</span>
+<span class="fc" id="L45">    public APIParser(APIFormatProvider provider, Logger logger) {</span>
+<span class="fc" id="L46">        this.logger = logger;</span>
+<span class="fc" id="L47">        parse(provider.provideJsonAsStrings());</span>
+<span class="fc" id="L48">    }</span>
 
     /**
      * Implementation Details:
@@ -57,7 +54,7 @@ public class APIParser implements Parser {
 
     @Override
     public List&lt;Collection&gt; getCollections() {
-<span class="fc" id="L60">        return new ArrayList&lt;&gt;(this.articleCollections);</span>
+<span class="fc" id="L57">        return new ArrayList&lt;&gt;(this.articleCollections);</span>
     }
 
 
@@ -70,15 +67,15 @@ public class APIParser implements Parser {
      */
     @Override
     public void parse(List&lt;String&gt; jsonStrings) {
-<span class="fc" id="L73">        Mapper&lt;Collection&gt; mapper = new CollectionMapper();</span>
-<span class="fc" id="L74">        jsonStrings.forEach(jsonString -&gt; {</span>
+<span class="fc" id="L70">        Mapper&lt;Collection&gt; mapper = new CollectionMapper();</span>
+<span class="fc" id="L71">        jsonStrings.forEach(jsonString -&gt; {</span>
             try {
-<span class="fc" id="L76">                articleCollections.add(mapper.map(new JSONObject(jsonString)));</span>
-<span class="pc" id="L77">            } catch (JSONException e) {</span>
-<span class="nc" id="L78">                logger.severe(&quot;Caught a JSONException while parsing.\n&quot; + jsonString + &quot;\n&quot; + e.getMessage());</span>
-            }
-<span class="fc" id="L80">        });</span>
-<span class="fc" id="L81">    }</span>
+<span class="fc" id="L73">                articleCollections.add(mapper.map(new JSONObject(jsonString)));</span>
+<span class="nc" id="L74">            } catch (JSONException e) {</span>
+<span class="nc" id="L75">                logger.severe(&quot;Caught a JSONException while parsing.\n&quot; + jsonString + &quot;\n&quot; + e.getMessage());</span>
+<span class="fc" id="L76">            }</span>
+<span class="fc" id="L77">        });</span>
+<span class="fc" id="L78">    }</span>
 
     /**
      * Constructor:
@@ -87,17 +84,22 @@ public class APIParser implements Parser {
      *      This constructor introduces stateful issues to the parser but it is only for the integration of 
      * the visitor pattern inside this codebase.
      */
-<span class="nc" id="L90">    public APIParser() {</span>
-<span class="nc" id="L91">        this.logger = Engine.getLogger();</span>
-<span class="nc" id="L92">    }</span>
+<span class="nc" id="L87">    public APIParser() {</span>
+<span class="nc" id="L88">        this.logger = Engine.getLogger();</span>
+<span class="nc" id="L89">    }</span>
 
+    /**
+     * Implementation Details:
+     *      A provider is created and the parser uses it to parse the given json.
+     * @param f
+     */
     @Override
     public void visit(FormatSpecifier f) {
-<span class="nc bnc" id="L96" title="All 2 branches missed.">        APIFormatProvider ap = f.isFileSource()</span>
-<span class="nc" id="L97">                ? new APIFileProvider((String) f.getSource())</span>
-<span class="nc" id="L98">                : new URLProvider((URL) f.getSource());</span>
-<span class="nc" id="L99">        parse(ap.provideJsonAsStrings());</span>
-<span class="nc" id="L100">    }</span>
+<span class="nc bnc" id="L98" title="All 2 branches missed.">        APIFormatProvider ap = f.isFileSource()</span>
+<span class="nc" id="L99">                ? new APIFileProvider((String) f.getSource())</span>
+<span class="nc" id="L100">                : new URLProvider((URL) f.getSource());</span>
+<span class="nc" id="L101">        parse(ap.provideJsonAsStrings());</span>
+<span class="nc" id="L102">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
