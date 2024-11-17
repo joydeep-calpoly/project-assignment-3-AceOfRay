@@ -93,11 +93,15 @@ public class SimpleParser implements Parser {
      *      This constructor introduces stateful issues to the parser but it is only for the integration of 
      * the visitor pattern inside this codebase.
      */
-
     public SimpleParser() {
         this.logger = Engine.getLogger();
     }
 
+    /**
+     * Implementation Details:
+     *      A provider is created and the parser uses it to parse the given json.
+     * @param f
+     */
     @Override
     public void visit(FormatSpecifier f) {
         SimpleFormatProvider sfp = new SimpleFileProvider((String) f.getSource());

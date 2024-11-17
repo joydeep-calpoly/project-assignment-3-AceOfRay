@@ -31,7 +31,8 @@ public interface Engine {
     public List<Collection> getCollections();
     
     /**
-     * This is a helper function that handles all the verbose code that is involved with creating a logger
+     * Implementation Details:
+     *      This is a helper function that handles all the verbose code that is involved with creating a logger
      */
 
     public static Logger getLogger() {
@@ -44,6 +45,10 @@ public interface Engine {
         return l;
     }
     
+    /**
+     * High Level:
+     *      Prints every article in every parser in the engine
+     */
     default void printCollections() {
         getCollections().forEach(collection -> {
             collection.printArticles(collection.getAllArticles());

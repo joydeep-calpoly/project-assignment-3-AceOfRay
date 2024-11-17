@@ -36,8 +36,8 @@ public class APIParser implements Parser {
     private final Logger logger;
 
     /**
-     * This constructor parses and logs
-     * Ideal for client use
+     * Constructor:
+     *      This constructor parses and logs. Ideal for client use
      * @param provider
      * @param logger
      */
@@ -88,6 +88,11 @@ public class APIParser implements Parser {
         this.logger = Engine.getLogger();
     }
 
+    /**
+     * Implementation Details:
+     *      A provider is created and the parser uses it to parse the given json.
+     * @param f
+     */
     @Override
     public void visit(FormatSpecifier f) {
         APIFormatProvider ap = f.isFileSource()
