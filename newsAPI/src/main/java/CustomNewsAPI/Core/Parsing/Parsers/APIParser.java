@@ -95,10 +95,13 @@ public class APIParser implements Parser {
      */
     @Override
     public void visit(FormatSpecifier f) {
+        // add a new field to the format specifier representing the type of article we want
+        // add a design pattern to make it 
         APIFormatProvider ap = f.isFileSource()
                 ? new APIFileProvider((String) f.getSource())
                 : new URLProvider((URL) f.getSource());
         parse(ap.provideJsonAsStrings());
+
     }
 
 }
