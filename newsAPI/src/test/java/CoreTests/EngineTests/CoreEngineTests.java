@@ -7,6 +7,7 @@ import CustomNewsAPI.Core.Engines.CoreEngine;
 import CustomNewsAPI.Core.Parsing.APIElements.FormatSpecifier;
 import CustomNewsAPI.Core.Parsing.Parsers.APIParser;
 import CustomNewsAPI.Core.Parsing.Parsers.SimpleParser;
+import com.sun.tools.javac.util.List;
 
 public class CoreEngineTests {
 
